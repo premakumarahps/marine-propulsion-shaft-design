@@ -1,0 +1,954 @@
+=== LOCAL CDP PROJECT EXTRACTION ===
+
+--- Final_Report_CDP.pdf (Total Pages: 208) ---
+
+[Page 1]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Designing of Corrosion Resistant Power 
+Transmission Marine Propulsion Shaft 
+Comprehensive Design Project 
+MT – 3201 
+ 
+Group 01 
+Submission Date: 2025/12/05 
+ 
+Team Members 
+H.M.T. DANINDI – 210094C 
+W.H.M.A.D. DHARMADASA – 210121J 
+A.K.R. DILSHAN – 210127H 
+B.N. KULATHUNGA – 210308N 
+H.P.S. PREMAKUMARA – 210494D 
+K.L. THEMIYA – 210640A 
+D.A.W.I. UDAYAKANTHA – 210660J 
+ 
+Department of Materials Science and Engineering 
+University of Moratuwa
+
+
+[Page 2]
+1 
+ 
+Table of Contents 
+(I) List of figures ...................................................................................................................................... 3 
+(II) List of tables ....................................................................................................................................... 6 
+(III) List of graphs .................................................................................................................................... 7 
+01. Executive Summary ........................................................................................................................... 8 
+02. Design Methodology .......................................................................................................................... 9 
+02.1 Division of Tasks Within the Group ............................................................................................. 9 
+02.2 Member Responsibilities and Outputs ......................................................................................... 9 
+03. Application Description .................................................................................................................... 12 
+03. 1 Environmental Analysis of the Marine Operating Environment ............................................... 12 
+03.2 Corrosion Mechanisms in Marine Propulsion Shafts ................................................................. 28 
+04. Material Selection ............................................................................................................................ 36 
+04.1 Introduction ................................................................................................................................ 36 
+04.2 Methodology .............................................................................................................................. 36 
+04.3 Design Requirements for Marine Propeller Shaft ...................................................................... 38 
+04.4 Material Screening ..................................................................................................................... 39 
+04.5 Material Ranking ........................................................................................................................ 44 
+04.6 Results and Discussion ............................................................................................................... 47 
+04.7 Conclusion .................................................................................................................................. 49 
+05. Corrosion Protection Strategy .......................................................................................................... 50 
+05.1 Surface Treatment & Coating Design for Marine Propulsion Shaft .......................................... 50 
+05.2 Electrochemical Protection Mechanisms ................................................................................... 65 
+05.3 Cathodic Protection (CP) Mechanisms for Marine Propeller Shaft ........................................... 69 
+05.4 Final Combined Protection Strategy .......................................................................................... 80 
+06. Mechanical Design ........................................................................................................................... 82 
+06.1 Deign of Shaft Geometry and Torque Transmission Calculation ............................................... 82 
+06.2 FEA simulation of loading and corrosion fatigue effects ......................................................... 120 
+07. CAD Drawings and 3D Models ..................................................................................................... 135 
+07.1 3D CAD Model Representation ............................................................................................... 135 
+07.2 2D Manufacturing Drawings .................................................................................................... 137 
+07.3 Drawing Standards and Conventions Used .............................................................................. 138 
+08. Process Design ............................................................................................................................... 139 
+08.1 Material Preparation ................................................................................................................. 139 
+08.2 Rough Turning.......................................................................................................................... 140 
+08.3 Deep-Hole Drilling and Internal Boring .................................................................................. 141 
+08.4 Re-Mounting and Rough OD Turning ..................................................................................... 142 
+08.5 Taper and Shoulder Machining ................................................................................................ 143 
+
+
+[Page 3]
+2 
+ 
+08.6 Heat Treatment ......................................................................................................................... 145 
+08.7 Finish Turning .......................................................................................................................... 147 
+08.8 Spline Taper Machining ........................................................................................................... 147 
+08.9 Thread Machining of the M95 × 4 Left-Hand Shaft Thread .................................................... 149 
+08.10 Machining of the Flange Section for Shaft–Intermediate Shaft Connection ......................... 151 
+08.11 Finish Grinding and Polishing ................................................................................................ 153 
+08.12 Non-Destructive Examination (NDE) and Final Dimensional /Runout Checks .................... 154 
+08.13 Discussion .............................................................................................................................. 155 
+09. Quality Assurance & Safety ........................................................................................................... 157 
+09.1 Quality Assurance Strategy ...................................................................................................... 157 
+09.2 Inspection Protocols ................................................................................................................. 157 
+09.3 Compliance with Standards and Certifications ........................................................................ 158 
+09.4 Acceptance Criteria and Traceability ....................................................................................... 160 
+09.5 Surface Finish and Roughness Inspection ................................................................................ 161 
+09.6 Safety Plan ................................................................................................................................ 163 
+09.7 Risk of Failure Modes and Mitigation Strategies ..................................................................... 164 
+09.8 In-Service Monitoring and Maintenance .................................................................................. 167 
+09.9 Safety During Fabrication and Cathodic Protection Installation ............................................. 169 
+09.10 Compliance with Safety Standards and Class Guidance ........................................................ 171 
+10. Discussion ...................................................................................................................................... 173 
+11. Conclusion and Recommendations ................................................................................................ 174 
+11.1 Conclusion ................................................................................................................................ 174 
+11.2 Recommendation ...................................................................................................................... 175 
+12. References ...................................................................................................................................... 176 
+13. Appendices ..................................................................................................................................... 182 
+ 
+ 
+ 
+ 
+
+
+[Page 4]
+3 
+ 
+(I) List of figures 
+Figure 1 - Uniform Corrosion [13], [14] ................................................................................................ 29 
+Figure 2 - Galvanic Corrosion [15], [16] ............................................................................................... 29 
+Figure 3 - Pitting Corrosion [17] ............................................................................................................ 30 
+Figure 4 - Crevice Corrosion [19] .......................................................................................................... 31 
+Figure 5 - Intergranular Corrosion [20] .................................................................................................. 32 
+Figure 6 - Microbiologically Influenced Corrosion [21] ....................................................................... 33 
+Figure 7 - Hydrogen Embrittlement [23] ............................................................................................... 33 
+Figure 8 - Cavitation Corrosion  [16] ..................................................................................................... 34 
+Figure 9 - Corrosion Erosion [16] .......................................................................................................... 34 
+Figure 10 - Fretting Corrosion [24] ........................................................................................................ 34 
+Figure 11 - Yield strength vs. density chart showing screened with filtered materials in gray color. [27]
+ ................................................................................................................................................................ 40 
+Figure 12 - Yield strength vs. density chart showing after removed filtered materials. It shows ASI 
+316LVM have highest yield strength. [27] ............................................................................................. 40 
+Figure 13 - Young’s Modulus vs. Density [27] ...................................................................................... 41 
+Figure 14 - Shear Modulus vs. Density [27] .......................................................................................... 41 
+Figure 15 - Fatigue Strength vs. Density [27] ........................................................................................ 42 
+Figure 16 - Pitting Resistance (PREN) vs. Density [27] ........................................................................ 42 
+Figure 17 - Price per Unit Volume vs. Density [27] ............................................................................... 43 
+Figure 18 - Material performance map showing the relationship between cost per unit strength and 
+mass per unit strength for marine shaft materials under cyclic torsion. 316LVM and Duplex 2205 
+occupy the most favorable region, balancing mass efficiency with moderate cost, while Ni-Cr-Mo 
+alloys lie in the high-cost range. [27] ..................................................................................................... 45 
+Figure 19 - Material performance map of PREN versus cost per unit strength. Duplex 2205 offers the 
+best compromise of corrosion resistance and cost, 316LVM sits near the minimum acceptable 
+corrosion threshold, and Ni-Cr-Mo alloys provide superior protection at a significant cost penalty. [27]
+ ................................................................................................................................................................ 45 
+Figure 20 - Ashby-style comparison of shortlisted marine shaft materials showing fatigue strength 
+versus density, with color representing pitting resistance (PREN) and marker size representing relative 
+cost. 316LVM offers the highest strength but marginal corrosion margin; Duplex 2205 provides 
+balanced strength, corrosion resistance, and cost; Ni-Cr-Mo (ILLIUM 98) exhibits excellent corrosion 
+resistance but low strength and high cost. .............................................................................................. 46 
+Figure 21 - Final shaft geometry ............................................................................................................ 50 
+Figure 22 - Shot peening ........................................................................................................................ 53 
+Figure 23 - The difference between a surface that has been pickled and one that has not. Pickling 
+provides protection. ................................................................................................................................ 55 
+Figure 24 - An Electropolished surface .................................................................................................. 55 
+Figure 25 - The difference between a surface that has been passivated and one that has not. ............... 56 
+Figure 26 - The surface that has been high-build epoxy coated ............................................................. 57 
+Figure 27 - The surface that has been polyurethane top coated ............................................................. 58 
+Figure 28- After applying the anti-fouling layer on the shaft ................................................................ 59 
+Figure 29 - Dry film lubricant coatings .................................................................................................. 59 
+Figure 30 - Cathodic Protection for Marine Shaft [37] .......................................................................... 65 
+Figure 31 - Calcareous Deposition in Cathodic Protection [37] ............................................................ 66 
+Figure 32 - Cathodic Disbandment [38] ................................................................................................. 67 
+Figure 33 - Anodic Protection Polarization Curve Through the Active to Passive Zone as Current Is 
+Applied  [42] .......................................................................................................................................... 67 
+Figure 34 - Typical Arrangement for Shaft Grounding and Monitoring  [36] ....................................... 72 
+
+
+[Page 5]
+4 
+ 
+Figure 35 - The figure describes the setup of a low-speed shaft line, directly coupled ......................... 84 
+Figure 36 - The figure describes the setup of a low-speed shaft line with reduction ............................. 84 
+Figure 37 - 3D rendered image of a propeller shaft and a stern tube. .................................................... 85 
+Figure 38 - Propulsion shaft line ............................................................................................................ 86 
+Figure 39 - Propeller of a ship ................................................................................................................ 87 
+Figure 40 - Different types of propellers design .................................................................................... 87 
+Figure 41 - Load applied on the shaft .................................................................................................... 88 
+Figure 42 - Geometry of rotating disk on a shaft, supported by bearings .............................................. 95 
+Figure 43 - Notation for whirling calculations. ...................................................................................... 95 
+Figure 44 - The End where the propeller connects .............................................................................. 101 
+Figure 45 - Cross section of the Spline shaft ....................................................................................... 101 
+Figure 46 - Marine type flange coupling .............................................................................................. 102 
+Figure 47 - Thread at end of the shaft .................................................................................................. 102 
+Figure 48 - Cross section of the Spline shaft ........................................................................................111 
+Figure 49 - The End where the propeller connects ...............................................................................111 
+Figure 50 - Angle of the tapered part ....................................................................................................111 
+Figure 51 - Marine type flange coupling .............................................................................................. 112 
+Figure 52 - Length of the propeller shaft ............................................................................................. 118 
+Figure 53 - Design of the propeller shaft ............................................................................................. 118 
+Figure 54 - final design with thread ..................................................................................................... 118 
+Figure 55 - Final propeller shaft design without thread ....................................................................... 119 
+Figure 56 - Thread of the shaft (3D image of the thread and 2D cross section image of the 
+thread(Section A-A)) ............................................................................................................................ 119 
+Figure 57 - 2D Image of the final shaft design .................................................................................... 119 
+Figure 58 - How the propeller connects to the shaft end. .................................................................... 119 
+Figure 59 : Result Of Boolean Subtract operation with zero-clearance spline interface ..................... 121 
+Figure 60 : specific “Split Surfaces” created for Bearing 1 and Bearing 2 locations (Highlighted area)
+ .............................................................................................................................................................. 122 
+Figure 61: The load vectors (Torque, Thrust, Gravity, and Preload) applied to the model .................. 124 
+Figure 62: A global seed size of 25 mm separated parts ...................................................................... 124 
+Figure 63: A global seed size of 25 mm of completed model .............................................................. 125 
+Figure 64: A global seed size of 25,12 mm strategy of separated parts ............................................... 125 
+Figure 65: Final optimize area ............................................................................................................. 126 
+Figure 66: Stress distribution for uniform mesh size 25mm (not capture fillets) ................................ 127 
+Figure 67: Stress distribution for optimize mesh size 25,12mm (partial capture fillets) ..................... 127 
+Figure 68: Stress distribution for final optimize mesh size .................................................................. 128 
+Figure 69: Reaction Force output table from Abaqus Visualization (Due to coupling we cannot see 
+color contours) ...................................................................................................................................... 129 
+Figure 70 : Moment output table from Abaqus Visualization (Due to coupling we cannot see color 
+contours) ............................................................................................................................................... 129 
+Figure 71: Displacement output table from Abaqus Visualization ....................................................... 129 
+Figure 72 : Stress distribution for Year 10 showing the slight color shift/intensity increase ............... 131 
+Figure 73 - 3D CAD model of the final designed shaft (view 01) ....................................................... 135 
+Figure 74 - 3D CAD model of the final designed shaft (view 02) ....................................................... 135 
+Figure 75 - 3D CAD model of the final designed shaft (view 03) ....................................................... 136 
+Figure 76 - 3D CAD model of the final designed shaft (view 04) ....................................................... 136 
+Figure 77 - 3D CAD model of the final designed shaft (Flange of the shaft) ...................................... 136 
+Figure 78 - 3D CAD model of the final designed shaft (Thread design of the shaft) .......................... 136 
+Figure 79 - Front Elevation of Propeller Shaft ..................................................................................... 137 
+Figure 80 - Section A–A Showing Internal Geometry ......................................................................... 137 
+
+
+[Page 6]
+5 
+ 
+Figure 81 - Detail B: Thread Geometry ............................................................................................... 137 
+Figure 82 - End Elevation of Flange Face ............................................................................................ 137 
+Figure 83 - Final design of the propeller shaft ..................................................................................... 139 
+Figure 84 - Deep hole drilling .............................................................................................................. 141 
+Figure 85 - Coolant Evacuation ........................................................................................................... 142 
+Figure 86 - Internal Boring ................................................................................................................... 142 
+Figure 87 - Taper turning from CNC lathe ........................................................................................... 144 
+Figure 88 - Solution Annealing ............................................................................................................ 145 
+Figure 89 - Spline Shaft Milling .......................................................................................................... 148 
+Figure 90 - Thread of the shaft ............................................................................................................. 150 
+Figure 91 - Flange of the shaft ............................................................................................................. 152 
+Figure 92 - Connection of the two flanges of the propeller shaft and intermediate shaft .................... 153 
+ 
+ 
+ 
+
+
+[Page 7]
+6 
+ 
+(II) List of tables 
+Table 1 - Approximate TDS (ppm) of Various Seas and Oceans [2] ...................................................... 13 
+Table 2 - Major Ionic Constituents in Seawater (35 ppt Salinity) [2] .................................................... 13 
+Table 3 - Seawater Resistivity (Ω·cm) as a Function of Salinity and Temperature [2] .......................... 27 
+Table 4 - A concise comparison (from Stage-4 comparison table in Ansys Granta see annex A) [27] .. 43 
+Table 5 - From the Granta comparison table (See annex A) [27]........................................................... 46 
+Table 6 - Summarized from the Granta comparison table and corrosion resistance database see annex 
+A. [27] .................................................................................................................................................... 47 
+Table 7 - Coating types ........................................................................................................................... 61 
+Table 8 - Recommended values for a and b constants for paint coating breakdown factor. (Coating 
+categories are defined in table 13) .......................................................................................................... 61 
+Table 9 - Summary of Potentials versus Ag/AgCl/Seawater Reference Electrode Recommended for the 
+Cathodic Protection of Various Metals in Seawater  [36] ...................................................................... 69 
+Table 10 - SACP vs. ICCP comparison .................................................................................................. 71 
+Table 11 - Recommended initial and final design current densities (A/m2) for seawater exposed bare 
+metal surfaces, as a function of depth and climatic region based on surface water temperature [33] ... 73 
+Table 12 - Recommended mean design current densities (A/m2) for seawater exposed bare metal 
+surfaces, as a function of depth and climatic region based on surface water temperature [33] ............. 74 
+Table 13 - Recommended Initial, Final and Mean Design Current Densities for Bared Steel Surface 
+Exposed to Seawater with a Range of Surface Water Temperatures [36] .............................................. 76 
+Table 14 - Maintenance Schedule .......................................................................................................... 79 
+Table 15 - Solid shaft vs. Hollow shaft Comparison .............................................................................. 94 
+Table 16 - Number of bolts for marine type flange coupling. (According to IS: 3653 - 1966 
+(Reaffirmed 1990)) ............................................................................................................................... 102 
+Table 17 - Number of bolts for marine type flange coupling. (According to IS: 3653 - 1966 
+(Reaffirmed 1990)) ................................................................................................................................111 
+Table 18 - Calculated values of the thread vs. ISO standard values of the thread ............................... 117 
+Table 19 - Calculated vs. ISO standard values of thread ..................................................................... 149 
+ 
+ 
+
+
+[Page 8]
+7 
+ 
+(III) List of graphs 
+Graph 1 - Dissolved Oxygen vs. Temperature [2] .................................................................................. 16 
+Graph 2 - Dissolved Oxygen vs. Salinity [2] ......................................................................................... 17 
+Graph 3 - Variations in dissolved oxygen, temperature, pH and salinity at a corrosion test site in the 
+Pacific Ocean [2] .................................................................................................................................... 21 
+Graph 4 - DO-depth profiles at two specific open ocean test sites [2] ................................................... 22 
+Graph 5 - Applied Stress vs Cycles to Failure [15] ................................................................................ 31 
+ 
+ 
+
+
+[Page 9]
+8 
+ 
+01. Executive Summary 
+This project presents the complete design, analysis, and protection strategy of a corrosion-resistant 
+marine propulsion shaft intended for long-term operation in a high-salinity seawater environment. 
+The shaft operates within the immersion and splash zones, where chloride exposure, cyclic torsional 
+loading, oxygen differentials, and biofouling significantly accelerate localized corrosion and fatigue 
+deterioration. 
+A systematic design methodology was followed, beginning with a detailed assessment of the marine 
+environment, the identification of governing corrosion mechanisms, and quantification of mechanical 
+design constraints. Material selection was carried out using a structured Translate–Screen–Rank–
+Document approach within ANSYS Granta EduPack, filtering over 1900 candidate materials and 
+ultimately selecting Duplex Stainless Steel 2205 due to its high yield strength (~460–510 MPa), 
+excellent pitting resistance (PREN > 30), favourable fatigue performance, and superior reliability 
+under chloride exposure. 
+Mechanical design involved calculating the required outer and inner shaft diameters based on 
+combined torsional, bending, and axial loads, supported by class-rule checks using IACS UR M68 and 
+DNV-CG-0038. Fatigue and vibration analyses confirmed that the selected hollow shaft geometry (OD 
+= 125 mm, ID = 60 mm) provides adequate safety margins against torsional fatigue, lateral whirling, 
+and dynamic misalignment. 
+To safeguard performance in the aggressive marine environment, a hybrid corrosion-protection 
+strategy was developed. This includes duplex stainless steel as the base material, a multilayer coating 
+system (epoxy + polyurethane + antifouling), and supplementary cathodic protection aligned with 
+DNV and ABS guidelines. Special attention is given to critical regions such as splines, tapers, and 
+bearing journals, which require electropolishing or dry-film lubrication rather than paint. 
+Manufacturing and QA plans were prepared to ensure dimensional accuracy, structural integrity, and 
+operational safety. These include CNC machining, controlled heat treatment, surface preparation, and 
+rigorous non-destructive examination (UT, MPI/DPI) followed by runout verification. All processes 
+adhere to international standards (e.g., DNV, ABS, ISO 31000). 
+Overall, the report integrates engineering design, corrosion science, materials engineering, and marine-
+class requirements to deliver a propulsion shaft that is structurally sound, corrosion-resistant, 
+manufacturable, and compliant with marine safety regulations. 
+ 
+ 
+
+
+[Page 10]
+9 
+ 
+02. Design Methodology 
+02.1 Division of Tasks Within the Group  
+To ensure an efficient workflow and systematic development of the marine propulsion shaft, the 
+overall project was divided into clearly defined tasks. Each task aligned with a major component of the 
+final design: environmental assessment, material selection, mechanical calculations, corrosion 
+protection, CAD modelling, manufacturing planning, FEA simulation, and final quality assurance. 
+The responsibilities were distributed among eight members according to individual strengths, allowing 
+each member to contribute directly to the technical development while maintaining collective review 
+and quality control. 
+02.2 Member Responsibilities and Outputs 
+ 
+The following table summarizes the assigned tasks and the outputs produced by each member. 
+Member 
+Assigned Tasks 
+Output Produced 
+D.A.W.I. UDAYAKANTHA – 
+210660J 
+• Working as group leader. 
+• Designing shaft geometry 
+and torque transmission 
+calculations. (Task 03) 
+• Conducting background 
+study for the marine shaft 
+and refining the project 
+scope. 
+• Adjusting design 
+parameters for practical 
+applications. 
+• Report compilation and 
+QA/safety plan under task 
+08. 
+• Made time plan of the 
+project. 
+• Made five progress reports. 
+• Made final report and final 
+presentation. 
+• Meetings were called.  
+• Checked the reports of tasks 
+2,4,6 and 7 done by other 
+members. 
+• Completed task 3 and 
+checked those results with 
+standard values. 
+• Clearly defined the project 
+scope and design 
+parameters according to 
+practical scenarios. 
+• Made safety plan for the 
+shaft. 
+K.L. THEMIYA – 210640A 
+• Identifying corrosion 
+mechanisms under task 01. 
+• Material selection using 
+Ashby plots and corrosion 
+data. (Task 02) 
+• Corrosion protection 
+strategy evaluation under 
+cathodic protection. (Task 
+05) 
+• Checking other members’ 
+reports. 
+• Conducting background 
+study for the marine shaft. 
+ 
+• Identified corrosion 
+mechanisms of the shaft. 
+• Helped to select suitable 
+material for the shaft. 
+• Evaluate corrosion 
+protection strategies. 
+• Checked the reports of tasks 
+1,2,4,5 and 6 done by other 
+members. 
+• Checked the meeting 
+minutes reports and all 
+other final reports before 
+submission. 
+• Conducted background 
+study. 
+ 
+ 
+
+
+[Page 11]
+10 
+ 
+H.P.S. PREMAKUMARA – 
+210494D 
+• Doing environmental 
+analysis for the shaft under 
+task 01. 
+• Material selection using 
+Ashby plots and corrosion 
+data by Ansys Granta 
+software. (Task 02)  
+• Drawing 3D CAD model of 
+the shaft under task 04. 
+• FEA simulation of loading 
+and corrosion fatigue 
+effects. (Task 06) 
+• Conducting background 
+study for the marine shaft. 
+• Did environmental analysis 
+part. 
+• Selected suitable material 
+for shaft using software. 
+• Drew the 3D CAD model 
+for the designed shaft. 
+• Did FEA simulation part. 
+• Conducted background 
+study. 
+H.M.T. DANINDI – 210094C 
+• Working as secretary of the 
+group. 
+• Conducting background 
+study for the marine shaft. 
+• Corrosion protection 
+strategy evaluation under 
+coating protection. (Task 
+05) 
+• Designing surface treatment 
+for the final shaft under task 
+07. 
+ 
+• Made five Meating minutes 
+reports. 
+• Conducted background 
+study. 
+• Evaluate corrosion 
+protection strategies. 
+• Selected suitable surfaces 
+treatments for the final 
+designed shaft. 
+ 
+B.N. KULATHUNGA – 
+210308N 
+• Conducting background 
+study for the marine shaft. 
+• Defining the manufacturing 
+process of the designed 
+shaft and surface heat 
+treatment for the shaft 
+under task 07. 
+• Conducted background 
+study. 
+• Defined manufacturing 
+process and the sequence of 
+production steps under 
+scientific base. 
+• Defined surface heat 
+treatment. 
+W.H.M.A.D. DHARMADASA 
+– 210121J 
+• Conducting background 
+study for the marine shaft. 
+• Drawing 3D CAD model of 
+the shaft under task 04. 
+• Making 2D production 
+drawings for the shaft under 
+task 02. 
+• Conducted background 
+study. 
+• Helped to draw the 3D 
+CAD model of the shaft. 
+• Made 2D production 
+drawings for the shaft. 
+A.K.R. DILSHAN – 210127H 
+• Conducting background 
+study for the marine shaft. 
+• Defining surface heat 
+treatment for the shaft 
+under task 07. 
+• Conducted background 
+study. 
+• Helped to define suitable 
+heat treatment for the shaft 
+under scientific base. 
+ 
+❖ All members created reports and presentation slides related to the tasks assigned to them, and 
+finally, the final report and final presentation were checked and approved. 
+ 
+
+
+[Page 12]
+11 
+ 
+❖ Suggested Task Distribution 
+• Task 01: Environmental analysis and corrosion mechanism identification  
+• Task 02: Material selection using Ashby plots and corrosion data  
+• Task 03: Design of shaft geometry and torque transmission calculations  
+• Task 04: CAD modelling and drawing preparation  
+• Task 05: Corrosion protection strategy evaluation (cathodic vs. coating)  
+• Task 06: FEA simulation of loading and corrosion fatigue effects  
+• Task 07: Manufacturing process and surface treatment design  
+• Task 08: Report compilation and QA/safety plan  
+ 
+
+
+[Page 13]
+12 
+ 
+03. Application Description 
+The marine propulsion shaft operates in one of the most aggressive natural environments encountered 
+in engineering applications. Its performance and long-term durability are directly influenced by the 
+chemical, physical, and biological characteristics of seawater, as well as the electrochemical processes 
+that arise at the metal–seawater interface. Understanding these environmental factors is essential for 
+selecting appropriate materials, defining geometric features, predicting degradation modes, and 
+designing an effective corrosion protection strategy. 
+This section provides a detailed description of the operating environment of the shaft and the 
+associated corrosion challenges. Section 3.1 presents an environmental analysis of the marine 
+conditions relevant to the propulsion system, including salinity, temperature, dissolved gases, flow 
+characteristics, biofouling activity, and other parameters that influence corrosion behavior. Section 3.2 
+builds on this foundation by examining the corrosion mechanisms most likely to affect marine 
+propulsion shafts, such as pitting, galvanic corrosion, crevice corrosion, microbiologically influenced 
+corrosion, and corrosion fatigue. 
+Together, these analyses establish the environmental context required for subsequent sections on 
+material selection, mechanical design, and corrosion protection strategy. They also provide the 
+scientific basis for evaluating the suitability of candidate materials such as duplex stainless steels and 
+for justifying the adoption of coatings, cathodic protection, or hybrid protection systems in the final 
+shaft design. 
+ 
+03. 1 Environmental Analysis of the Marine Operating Environment  
+Seawater covers approximately 70% of the Earth’s surface and represents one of the most chemically 
+and biologically complex natural environments. It contains nearly every element in the periodic table, 
+along with a vast diversity of living organisms, earning it the description of a “living” medium. Due to 
+its aggressive nature, seawater is widely regarded as one of the most corrosive environments 
+encountered in engineering applications. This chapter explores the critical environmental parameters of 
+seawater that influence material degradation, especially corrosion. These factors are essential for 
+understanding and predicting material performance in marine systems such as ships, offshore 
+platforms, pipelines, and submerged components. The subsections below examine key characteristics 
+including salinity, dissolved gases, pH, biological activity, temperature, depth, flow velocity, and 
+electrical resistivity, all of which collectively define the corrosive nature of seawater. 
+ 
+03.1.1 Seawater Constituents 
+Seawater is widely recognized as one of the most chemically aggressive environments for metallic 
+materials, primarily due to its complex composition. Although sodium chloride (NaCl) is often cited as 
+the main source of corrosivity, the actual corrosion behavior is influenced more significantly by other 
+constituents particularly dissolved oxygen (DO) and pollutants such as sulfides. These components 
+critically affect the electrochemical conditions at the metal–seawater interface. 
+The total salt content of seawater is expressed as salinity, which refers to the mass of total dissolved 
+solids (TDS) in one kilogram of seawater, after oxidation of organic matter and replacement of 
+bromine and iodine by chlorine. A related and analytically more accessible parameter is chlorinity, 
+which includes the chloride ion concentration as well as the equivalent amount of bromide and iodide. 
+The relationship between the two is defined by the empirical equation: 
+𝑆𝑎𝑙𝑖𝑛𝑖𝑡𝑦 = (1.80655 ×  𝐶ℎ𝑙𝑜𝑟𝑖𝑛𝑖𝑡𝑦) +  0.03 
+
+
+[Page 14]
+13 
+ 
+Both salinity and chlorinity are commonly reported in grams per kilogram (g/kg) or parts per thousand 
+(ppt or %). To convert these two parts per million (ppm), the values are multiplied by 1,000. Salinity is 
+also considered equivalent to TDS and may be expressed in mg/L (ppm). 
+Seawater properties vary significantly depending on geographical location, season, and water depth. 
+Influencing factors include: 
+• River discharge 
+• Evaporation and rainfall 
+• Melting of polar ice 
+• Wind and wave activity 
+For instance, littoral (coastal) waters often exhibit lower salinity due to freshwater influx and may also 
+contain high levels of sediment and organic/inorganic pollutants, leading to brackish conditions. 
+The average salinity of open ocean water is typically 32–36 ppt, and the corresponding chlorinity is 
+approximately 18–20 ppt. By contrast, extreme environments such as the Dead Sea exhibit salinities 
+more than ten times higher, reaching 322,000 ppm, as shown in Table 1. [1] 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+The average chemical composition of open-ocean seawater with 35 ppt salinity is detailed in Table 2. 
+From a corrosion standpoint, chloride ions (Cl⁻) are especially aggressive, as they interfere with the 
+formation and stability of passive oxide films on metals, particularly stainless steels and aluminum 
+alloys. Sulfate ions (SO₄²⁻), though less directly corrosive, support the activity of sulfate-reducing 
+bacteria (SRB) under anaerobic conditions, potentially leading to severe microbial corrosion. 
+In addition to these ions, seawater contains organic matter that supports biological activity. Elements 
+such as carbon, oxygen, hydrogen, nitrogen, and phosphorus are involved in forming polysaccharides, 
+Table 1 - Approximate TDS (ppm) of Various Seas and Oceans [2] 
+Table 2 - Major Ionic Constituents in Seawater (35 ppt Salinity) [2] 
+
+
+[Page 15]
+14 
+ 
+lipids, and proteins. While carbon, oxygen, and hydrogen are abundant, nitrogen and phosphorus 
+compounds (e.g., nitrates and phosphates) often act as limiting nutrients. 
+In coastal areas, nutrient loading from river discharge, sewage, and fertilizer runoff can significantly 
+increase the concentrations of these nutrients. This process leads to eutrophication, characterized by 
+excessive plant and algae growth, which depletes dissolved oxygen and may result in large-scale 
+marine life die-off commonly seen in phenomena like red tides. 
+Additionally, industrial waste and heavy metal discharge can enhance seawater's corrosivity. For 
+example: 
+• 
+Copper ions may adversely affect aluminum alloys 
+• 
+Sulfides and ammonia can increase the corrosion rate of copper alloys 
+• 
+Sulfur compounds are particularly aggressive toward steels 
+Design Relevance of Seawater Constituents 
+The chemical composition of seawater, particularly the concentration of aggressive ions plays a central 
+role in shaping the corrosion behavior of materials used in marine propulsion shafts. In our project, the 
+shaft operates under continuous exposure to seawater immersion and splashing at an average 
+temperature of 25 °C, where both galvanic and pitting corrosion are critical threats. Understanding 
+seawater constituents helps us make informed decisions regarding material selection, protection 
+strategies, and service life prediction. 
+Key Impacts on Shaft Design:  
+1. High Chloride Content (~19,000 ppm Cl⁻): 
+• 
+Chloride ions are the primary drivers of pitting corrosion, especially in passive alloys like 
+SS316L or Duplex 2205. [1] 
+• 
+They degrade protective oxide films, making them highly relevant in areas such as the splash 
+zone and shaft surface crevices. 
+• 
+This supports the selection of duplex or NiCrMo alloys with high PREN (Pitting Resistance 
+Equivalent Number) values for critical locations. 
+2. Bicarbonate and Calcium Ions (HCO₃⁻, Ca²⁺): 
+• 
+These ions contribute to calcium carbonate (CaCO3) scale formation, particularly in heated or 
+moving components. [1] 
+• 
+While thin scales can reduce general corrosion by limiting DO diffusion, they also create risks 
+for under-deposit corrosion and reduce heat transfer at bearing interfaces. 
+3. Sulfate Ions and Nutrient Loading (SO₄²⁻, PO₄³⁻, NO₃⁻): 
+• 
+Sulfates support the growth of sulfate-reducing bacteria (SRB), a common cause of 
+microbiologically influenced corrosion (MIC) in stagnant or shielded zones.  
+• 
+In our rotating shaft, regions near keyways, couplings, and seals may experience localized 
+stagnation, increase MIC risk if not properly sealed or coated. 
+4. Pollutants and Organics (e.g., Sulfides, Ammonia, Heavy Metals): 
+• 
+In littoral or industrial waters, pollutant-induced corrosion acceleration is a serious concern. 
+• 
+Our shaft may be deployed in nearshore environments during docking or maintenance, where 
+exposure to these contaminants could compromise protective systems. 
+
+
+[Page 16]
+15 
+ 
+5. Justification for Synthetic Seawater (3.5% NaCl): 
+• 
+In simulations and lab-scale testing, a 3.5% NaCl solution effectively replicates the average 
+ionic strength and aggressiveness of open-ocean seawater. [1] 
+• 
+This standardization allows us to reliably test the corrosion performance of candidate materials, 
+coatings, or cathodic protection schemes under controlled conditions. 
+ 
+03.1.2 Effect of Dissolved Gases 
+Dissolved gases, particularly dissolved oxygen (DO), are among the most critical factors influencing 
+corrosion behavior in seawater. In the context of our marine propulsion shaft which operates in aerated 
+seawater at 25 °C under splashing and immersion conditions the role of oxygen is directly linked to 
+corrosion initiation, propagation, and even protection system effectiveness. 
+ 
+Key Impacts on Shaft Design: 
+1. Dissolved Oxygen Accelerates Corrosion: 
+• 
+DO acts as the primary cathodic reactant in electrochemical corrosion cells. It facilitates the 
+reduction reaction that balances metal dissolution at the anodic sites. 
+• 
+This makes the splash zone and areas near the waterline, where oxygen access is highest, 
+particularly susceptible to general corrosion, pitting, and crevice corrosion all critical for shaft 
+surfaces and couplings. 
+2. DO Concentration Varies with Temperature and Salinity: 
+• 
+DO levels decrease with increasing temperature and salinity, both relevant in our case (25 °C 
+and ~35 ppt salinity). Despite lower oxygen solubility, turbulent flow around the rotating shaft 
+maintains high DO transport, sustaining corrosion activity. 
+• 
+Figures from the source show this relationship, reinforcing the need to simulate realistic DO 
+levels in lab testing. 
+3. Effect of Flow and Splashing (High Velocity): 
+• 
+The high-speed rotation of the shaft (1200 RPM) creates significant water turbulence, 
+enhancing oxygen diffusion to metal surfaces. 
+• 
+While this may benefit passivation in duplex or NiCrMo alloys, it also amplifies localized 
+corrosion risk if passive films break down, especially in areas prone to erosion-corrosion or 
+debris entrapment.[2] 
+4. Biological Oxygen Demand (BOD) and Stagnant Zones: 
+• 
+In partially stagnant areas like keyways, seal interfaces, or coupling recesses, biological 
+activity can deplete oxygen locally, setting up differential aeration cells. 
+• 
+The oxygen-rich outer surface becomes cathodic, while the shielded zone becomes anodic, 
+promoting pitting and crevice corrosion especially relevant if stainless steels like SS316L are 
+used. 
+ 
+ 
+
+
+[Page 17]
+16 
+ 
+5. Gas Byproducts of Bioactivity (e.g., H₂S, NH₃): 
+• 
+Anaerobic zones within or near the shaft can also host sulfate-reducing bacteria (SRB), which 
+generate hydrogen sulfide (H₂S) a highly corrosive gas that destabilizes passive films and can 
+lead to MIC (Microbiologically Influenced Corrosion). 
+ 
+03.1.3 Seawater pH 
+Natural seawater is slightly alkaline, with a typical pH range of 8.0 to 8.3, depending on temperature, 
+salinity, biological activity, and atmospheric interactions. The carbonate system in seawater involving 
+carbon dioxide (CO2), carbonic acid (H2CO3), bicarbonate (HCO3⁻), and carbonate (CO3²⁻) is the 
+principal buffer that stabilizes the pH of seawater. 
+This system is governed by the following reactions: 
+1. CO2 (g) ⇌ CO₂ (aq) 
+2. CO2 (aq) + H₂O ⇌ H2CO3 
+3. H2CO3 ⇌ H⁺ + HCO3⁻ 
+4. HCO3⁻ ⇌ H⁺ + CO3²⁻ 
+The combination of these equilibria provides seawater with its significant buffering capacity. This 
+buffering resists abrupt pH shifts when acids or bases are introduced, thus maintaining relatively stable 
+pH values in oceanic waters. [3] 
+In open-ocean conditions, this system is very effective. However, in coastal regions, especially semi-
+enclosed basins, the buffering capacity can be overwhelmed by the influx of: 
+• 
+Organic material 
+• 
+Agricultural runoff 
+• 
+Industrial discharge 
+• 
+Biological productivity (eutrophication) 
+In such areas, local reductions in pH (acidification) are possible. This has significant consequences for: 
+• 
+Marine organisms, especially calcifies 
+• 
+Electrochemical processes on metal surfaces 
+• 
+Corrosion protection systems 
+In addition to pH, dissolved oxygen (DO) plays a key role in the corrosion process. DO levels in 
+seawater vary with temperature and salinity and are closely linked to pH stability and corrosion 
+severity. Two key relationships are illustrated in the following figures: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Graph 1 - Dissolved Oxygen vs. Temperature [2] 
+
+
+[Page 18]
+17 
+ 
+This figure shows the inverse relationship between DO concentration and temperature in natural 
+seawater (35‰ salinity at 1 atm). As temperature increases, the capacity of seawater to hold oxygen 
+decreases. This has implications for electrochemical reactions at metal surfaces, particularly in tropical 
+marine environments. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This figure illustrates how DO decreases as salinity increases in synthetic seawater at 20 °C and 1 atm. 
+Higher salinity reduces oxygen solubility, which can influence both corrosion rates and microbial 
+activity in marine systems. 
+While the bulk seawater pH tends to remain stable, sharp local reductions in pH can occur directly at 
+the metal–solution interface especially in stagnant or restricted areas such as: 
+• 
+Crevices 
+• 
+Under deposits 
+• 
+Inside microbially active zones 
+In these micro-environments, the hydrolysis of metal ions during anodic dissolution leads to an 
+accumulation of H⁺ ions, significantly lowering the local pH (sometimes to values below 4). This 
+creates aggressive conditions, especially for passive materials like stainless steel, which rely on a 
+stable, high-pH environment to maintain their protective oxide layers. 
+Such drops in pH are often the precursor to pitting and crevice corrosion and are particularly 
+concerning in: 
+• 
+Bolted assemblies 
+• 
+Seals 
+• 
+Shaft couplings 
+• 
+Shaft-hull interfaces 
+Relevance to Shaft Design 
+In the context of our marine propulsion shaft, which is exposed to splashing and immersion in 
+seawater at 25 °C, the stable bulk pH of around 8.1 supports the passivity of high-performance alloys 
+like Duplex 2205 and NiCrMo grades. 
+However, specific shaft features including keyways, flanges, sealing zones, and stagnant fluid traps are 
+prone to localized acidification. This makes them vulnerable to crevice corrosion, especially if 
+materials like SS316L are used without enhanced protection. The issue is further exacerbated by 
+biofouling or microbial activity, both of which can reduce local pH and oxygen levels.[3] 
+ 
+Graph 2 - Dissolved Oxygen vs. Salinity [2] 
+
+
+[Page 19]
+18 
+ 
+From a corrosion protection perspective: 
+• 
+Cathodic protection systems increase surface alkalinity, promoting calcareous deposit 
+formation, but require surrounding waters to maintain sufficient buffering. 
+• 
+In environments where acidification from eutrophication or pollution is possible, coating 
+systems may offer more consistent performance than CP. 
+Finally, for corrosion simulation and material testing, it is essential to replicate realistic pH conditions, 
+especially for evaluating behavior in tidal and splash zones. 
+ 
+03.1.4 Calcareous Deposits 
+When metals are subjected to cathodic protection in seawater, either through impressed current 
+systems or sacrificial anodes, calcareous deposits typically form on their surfaces. These deposits 
+consist mainly of: 
+• 
+Calcium carbonate (CaCO3) 
+• 
+Magnesium hydroxide (Mg(OH)2) 
+They are produced as a consequence of the electrochemical reactions that occur at the protected 
+(cathodic) metal surface. Specifically, the cathodic reduction of oxygen or water leads to an increase in 
+local hydroxyl ion (OH⁻) concentration, raising the pH near the metal interface. This localized 
+alkalinity promotes the precipitation of calcium and magnesium salts, naturally present in seawater. 
+The sequence of reactions can be outlined as follows: 
+At the cathodic surface: 
+• 
+O2 + 2H2O + 4e⁻ → 4OH⁻ 
+or 
+• 
+2H2O + 2e⁻ → H₂ + 2OH⁻ (in less aerated zones) 
+Precipitation occurs as: 
+• 
+Ca²⁺ + CO3²⁻ → CaCO3 ↓ 
+• 
+Mg²⁺ + 2OH⁻ → Mg(OH)2 ↓  [4] 
+The extent and rate of deposit formation depend on several factors: 
+• 
+Water composition, especially the concentrations of Ca²⁺, Mg²⁺, and CO3²⁻ 
+• 
+pH at the surface, which is influenced by current density and flow conditions 
+• 
+Temperature (solubility decreases with increasing temperature) 
+• 
+Velocity of the surrounding seawater 
+In general, calcium carbonate is the more prominent deposit in areas with moderate flow, while 
+magnesium hydroxide tends to dominate in low-flow or stagnant areas due to its higher solubility 
+threshold. 
+These deposits form a secondary barrier to corrosion by: 
+• 
+Physically blocking the transport of oxygen and aggressive ions (e.g., Cl⁻) 
+• 
+Further raising the surface pH 
+• 
+Enhancing the current efficiency of cathodic protection systems 
+ 
+
+
+[Page 20]
+19 
+ 
+However, the presence of deposits also introduces certain design considerations: 
+• 
+They can crack or detach in high-velocity zones, exposing bare metal 
+• 
+They may reduce heat transfer in thermally active components 
+• 
+In poorly buffered waters, deposition may be incomplete or irregular 
+Calcareous deposits have been widely studied in connection with offshore structures, pipelines, and 
+ship hulls. They are especially beneficial for passive metals like steel, which otherwise corrode rapidly 
+in the absence of protection. The buildup of such layers can significantly extend the service life of 
+submerged structures and components. 
+Relevance to Shaft Design 
+For marine propulsion shaft particularly if cathodic protection (CP) is considered as a corrosion 
+prevention strategy understanding the role of calcareous deposits is essential. 
+In our design context: 
+• 
+The shaft operates in 25 °C seawater, a temperature that favors carbonate precipitation 
+• 
+The seawater contains sufficient calcium and magnesium ions (as shown in Section 2.1), 
+supporting deposit formation 
+• 
+The rotational speed (225 RPM) creates flow velocities that may limit deposit stability on 
+certain surfaces 
+Key areas where CP may be applied (e.g., at shaft supports, through-hull penetrations, or stern tube 
+interfaces) must be designed to accommodate deposit formation. Proper selection of current density, 
+anode placement, and surface finishing will influence the formation and adherence of protective layers. 
+Furthermore, Duplex 2205, if used, may benefit from the dual action of passivation and calcareous 
+deposit formation, further reducing corrosion risk. However, in turbulent zones or splash areas, 
+deposits may be unstable indicating a need to combine CP with coatings or design features that 
+minimize exposure. 
+In summary, effective use of cathodic protection in our shaft design must account for: 
+• 
+Deposit formation dynamics 
+• 
+Water chemistry and flow conditions 
+• 
+Material compatibility and surface design 
+These considerations help ensure the long-term durability and reliability of the propulsion system 
+under marine operating conditions. 
+ 
+03.1.5 Effect of Seawater Temperature 
+Temperature is one of the most influential environmental factors in the corrosion behavior of metals 
+immersed in seawater. It directly affects both the physicochemical properties of seawater and the 
+electrochemical kinetics of corrosion reactions. Generally, an increase in temperature accelerates 
+corrosion rates, particularly for active metals and alloys. 
+Several key temperature-dependent effects are observed: 
+1. Increased Corrosion Reaction Rates  
+Elevated temperatures enhance the rate of electrochemical reactions by increasing ion mobility and 
+decreasing solution viscosity. According to the Arrhenius relationship, a 10 °C rise in temperature can 
+double the corrosion rate of many metals. 
+

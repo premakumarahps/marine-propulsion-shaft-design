@@ -1,0 +1,3265 @@
+=== EXTRACTED KEY DESIGN PARAMETERS FROM 208-PAGE FINAL REPORT ===
+
+
+==============================
+EXECUTIVE SUMMARY
+==============================
+
+--- Page 9 ---
+8 
+ 
+01. Executive Summary 
+This project presents the complete design, analysis, and protection strategy of a corrosion-resistant 
+marine propulsion shaft intended for long-term operation in a high-salinity seawater environment. 
+The shaft operates within the immersion and splash zones, where chloride exposure, cyclic torsional 
+loading, oxygen differentials, and biofouling significantly accelerate localized corrosion and fatigue 
+deterioration. 
+A systematic design methodology was followed, beginning with a detailed assessment of the marine 
+environment, the identification of governing corrosion mechanisms, and quantification of mechanical 
+design constraints. Material selection was carried out using a structured Translate–Screen–Rank–
+Document approach within ANSYS Granta EduPack, filtering over 1900 candidate materials and 
+ultimately selecting Duplex Stainless Steel 2205 due to its high yield strength (~460–510 MPa), 
+excellent pitting resistance (PREN > 30), favourable fatigue performance, and superior reliability 
+under chloride exposure. 
+Mechanical design involved calculating the required outer and inner shaft diameters based on 
+combined torsional, bending, and axial loads, supported by class-rule checks using IACS UR M68 and 
+DNV-CG-0038. Fatigue and vibration analyses confirmed that the selected hollow shaft geometry (OD 
+= 125 mm, ID = 60 mm) provides adequate safety margins against torsional fatigue, lateral whirling, 
+and dynamic misalignment. 
+To safeguard performance in the aggressive marine environment, a hybrid corrosion-protection 
+strategy was developed. This includes duplex stainless steel as the base material, a multilayer coating 
+system (epoxy + polyurethane + antifouling), and supplementary cathodic protection aligned with 
+DNV and ABS guidelines. Special attention is given to critical regions such as splines, tapers, and 
+bearing journals, which require electropolishing or dry-film lubrication rather than paint. 
+Manufacturing and QA plans were prepared to ensure dimensional accuracy, structural integrity, and 
+operational safety. These include CNC machining, controlled heat treatment, surface preparation, and 
+rigorous non-destructive examination (UT, MPI/DPI) followed by runout verification. All processes 
+adhere to international standards (e.g., DNV, ABS, ISO 31000). 
+Overall, the report integrates engineering design, corrosion science, materials engineering, and marine-
+class requirements to deliver a propulsion shaft that is structurally sound, corrosion-resistant, 
+manufacturable, and compliant with marine safety regulations. 
+ 
+ 
+
+==============================
+ENVIRONMENTAL ANALYSIS (Task 01 - Premakumara)
+==============================
+
+--- Page 12 ---
+11 
+ 
+❖ Suggested Task Distribution 
+• Task 01: Environmental analysis and corrosion mechanism identification  
+• Task 02: Material selection using Ashby plots and corrosion data  
+• Task 03: Design of shaft geometry and torque transmission calculations  
+• Task 04: CAD modelling and drawing preparation  
+• Task 05: Corrosion protection strategy evaluation (cathodic vs. coating)  
+• Task 06: FEA simulation of loading and corrosion fatigue effects  
+• Task 07: Manufacturing process and surface treatment design  
+• Task 08: Report compilation and QA/safety plan  
+ 
+
+--- Page 13 ---
+12 
+ 
+03. Application Description 
+The marine propulsion shaft operates in one of the most aggressive natural environments encountered 
+in engineering applications. Its performance and long-term durability are directly influenced by the 
+chemical, physical, and biological characteristics of seawater, as well as the electrochemical processes 
+that arise at the metal–seawater interface. Understanding these environmental factors is essential for 
+selecting appropriate materials, defining geometric features, predicting degradation modes, and 
+designing an effective corrosion protection strategy. 
+This section provides a detailed description of the operating environment of the shaft and the 
+associated corrosion challenges. Section 3.1 presents an environmental analysis of the marine 
+conditions relevant to the propulsion system, including salinity, temperature, dissolved gases, flow 
+characteristics, biofouling activity, and other parameters that influence corrosion behavior. Section 3.2 
+builds on this foundation by examining the corrosion mechanisms most likely to affect marine 
+propulsion shafts, such as pitting, galvanic corrosion, crevice corrosion, microbiologically influenced 
+corrosion, and corrosion fatigue. 
+Together, these analyses establish the environmental context required for subsequent sections on 
+material selection, mechanical design, and corrosion protection strategy. They also provide the 
+scientific basis for evaluating the suitability of candidate materials such as duplex stainless steels and 
+for justifying the adoption of coatings, cathodic protection, or hybrid protection systems in the final 
+shaft design. 
+ 
+03. 1 Environmental Analysis of the Marine Operating Environment  
+Seawater covers approximately 70% of the Earth’s surface and represents one of the most chemically 
+and biologically complex natural environments. It contains nearly every element in the periodic table, 
+along with a vast diversity of living organisms, earning it the description of a “living” medium. Due to 
+its aggressive nature, seawater is widely regarded as one of the most corrosive environments 
+encountered in engineering applications. This chapter explores the critical environmental parameters of 
+seawater that influence material degradation, especially corrosion. These factors are essential for 
+understanding and predicting material performance in marine systems such as ships, offshore 
+platforms, pipelines, and submerged components. The subsections below examine key characteristics 
+including salinity, dissolved gases, pH, biological activity, temperature, depth, flow velocity, and 
+electrical resistivity, all of which collectively define the corrosive nature of seawater. 
+ 
+03.1.1 Seawater Constituents 
+Seawater is widely recognized as one of the most chemically aggressive environments for metallic 
+materials, primarily due to its complex composition. Although sodium chloride (NaCl) is often cited as 
+the main source of corrosivity, the actual corrosion behavior is influenced more significantly by other 
+constituents particularly dissolved oxygen (DO) and pollutants such as sulfides. These components 
+critically affect the electrochemical conditions at the metal–seawater interface. 
+The total salt content of seawater is expressed as salinity, which refers to the mass of total dissolved 
+solids (TDS) in one kilogram of seawater, after oxidation of organic matter and replacement of 
+bromine and iodine by chlorine. A related and analytically more accessible parameter is chlorinity, 
+which includes the chloride ion concentration as well as the equivalent amount of bromide and iodide. 
+The relationship between the two is defined by the empirical equation: 
+𝑆𝑎𝑙𝑖𝑛𝑖𝑡𝑦 = (1.80655 ×  𝐶ℎ𝑙𝑜𝑟𝑖𝑛𝑖𝑡𝑦) +  0.03 
+
+--- Page 14 ---
+13 
+ 
+Both salinity and chlorinity are commonly reported in grams per kilogram (g/kg) or parts per thousand 
+(ppt or %). To convert these two parts per million (ppm), the values are multiplied by 1,000. Salinity is 
+also considered equivalent to TDS and may be expressed in mg/L (ppm). 
+Seawater properties vary significantly depending on geographical location, season, and water depth. 
+Influencing factors include: 
+• River discharge 
+• Evaporation and rainfall 
+• Melting of polar ice 
+• Wind and wave activity 
+For instance, littoral (coastal) waters often exhibit lower salinity due to freshwater influx and may also 
+contain high levels of sediment and organic/inorganic pollutants, leading to brackish conditions. 
+The average salinity of open ocean water is typically 32–36 ppt, and the corresponding chlorinity is 
+approximately 18–20 ppt. By contrast, extreme environments such as the Dead Sea exhibit salinities 
+more than ten times higher, reaching 322,000 ppm, as shown in Table 1. [1] 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+The average chemical composition of open-ocean seawater with 35 ppt salinity is detailed in Table 2. 
+From a corrosion standpoint, chloride ions (Cl⁻) are especially aggressive, as they interfere with the 
+formation and stability of passive oxide films on metals, particularly stainless steels and aluminum 
+alloys. Sulfate ions (SO₄²⁻), though less directly corrosive, support the activity of sulfate-reducing 
+bacteria (SRB) under anaerobic conditions, potentially leading to severe microbial corrosion. 
+In addition to these ions, seawater contains organic matter that supports biological activity. Elements 
+such as carbon, oxygen, hydrogen, nitrogen, and phosphorus are involved in forming polysaccharides, 
+Table 1 - Approximate TDS (ppm) of Various Seas and Oceans [2] 
+Table 2 - Major Ionic Constituents in Seawater (35 ppt Salinity) [2] 
+
+--- Page 15 ---
+14 
+ 
+lipids, and proteins. While carbon, oxygen, and hydrogen are abundant, nitrogen and phosphorus 
+compounds (e.g., nitrates and phosphates) often act as limiting nutrients. 
+In coastal areas, nutrient loading from river discharge, sewage, and fertilizer runoff can significantly 
+increase the concentrations of these nutrients. This process leads to eutrophication, characterized by 
+excessive plant and algae growth, which depletes dissolved oxygen and may result in large-scale 
+marine life die-off commonly seen in phenomena like red tides. 
+Additionally, industrial waste and heavy metal discharge can enhance seawater's corrosivity. For 
+example: 
+• 
+Copper ions may adversely affect aluminum alloys 
+• 
+Sulfides and ammonia can increase the corrosion rate of copper alloys 
+• 
+Sulfur compounds are particularly aggressive toward steels 
+Design Relevance of Seawater Constituents 
+The chemical composition of seawater, particularly the concentration of aggressive ions plays a central 
+role in shaping the corrosion behavior of materials used in marine propulsion shafts. In our project, the 
+shaft operates under continuous exposure to seawater immersion and splashing at an average 
+temperature of 25 °C, where both galvanic and pitting corrosion are critical threats. Understanding 
+seawater constituents helps us make informed decisions regarding material selection, protection 
+strategies, and service life prediction. 
+Key Impacts on Shaft Design:  
+1. High Chloride Content (~19,000 ppm Cl⁻): 
+• 
+Chloride ions are the primary drivers of pitting corrosion, especially in passive alloys like 
+SS316L or Duplex 2205. [1] 
+• 
+They degrade protective oxide films, making them highly relevant in areas such as the splash 
+zone and shaft surface crevices. 
+• 
+This supports the selection of duplex or NiCrMo alloys with high PREN (Pitting Resistance 
+Equivalent Number) values for critical locations. 
+2. Bicarbonate and Calcium Ions (HCO₃⁻, Ca²⁺): 
+• 
+These ions contribute to calcium carbonate (CaCO3) scale formation, particularly in heated or 
+moving components. [1] 
+• 
+While thin scales can reduce general corrosion by limiting DO diffusion, they also create risks 
+for under-deposit corrosion and reduce heat transfer at bearing interfaces. 
+3. Sulfate Ions and Nutrient Loading (SO₄²⁻, PO₄³⁻, NO₃⁻): 
+• 
+Sulfates support the growth of sulfate-reducing bacteria (SRB), a common cause of 
+microbiologically influenced corrosion (MIC) in stagnant or shielded zones.  
+• 
+In our rotating shaft, regions near keyways, couplings, and seals may experience localized 
+stagnation, increase MIC risk if not properly sealed or coated. 
+4. Pollutants and Organics (e.g., Sulfides, Ammonia, Heavy Metals): 
+• 
+In littoral or industrial waters, pollutant-induced corrosion acceleration is a serious concern. 
+• 
+Our shaft may be deployed in nearshore environments during docking or maintenance, where 
+exposure to these contaminants could compromise protective systems. 
+
+--- Page 20 ---
+19 
+ 
+However, the presence of deposits also introduces certain design considerations: 
+• 
+They can crack or detach in high-velocity zones, exposing bare metal 
+• 
+They may reduce heat transfer in thermally active components 
+• 
+In poorly buffered waters, deposition may be incomplete or irregular 
+Calcareous deposits have been widely studied in connection with offshore structures, pipelines, and 
+ship hulls. They are especially beneficial for passive metals like steel, which otherwise corrode rapidly 
+in the absence of protection. The buildup of such layers can significantly extend the service life of 
+submerged structures and components. 
+Relevance to Shaft Design 
+For marine propulsion shaft particularly if cathodic protection (CP) is considered as a corrosion 
+prevention strategy understanding the role of calcareous deposits is essential. 
+In our design context: 
+• 
+The shaft operates in 25 °C seawater, a temperature that favors carbonate precipitation 
+• 
+The seawater contains sufficient calcium and magnesium ions (as shown in Section 2.1), 
+supporting deposit formation 
+• 
+The rotational speed (225 RPM) creates flow velocities that may limit deposit stability on 
+certain surfaces 
+Key areas where CP may be applied (e.g., at shaft supports, through-hull penetrations, or stern tube 
+interfaces) must be designed to accommodate deposit formation. Proper selection of current density, 
+anode placement, and surface finishing will influence the formation and adherence of protective layers. 
+Furthermore, Duplex 2205, if used, may benefit from the dual action of passivation and calcareous 
+deposit formation, further reducing corrosion risk. However, in turbulent zones or splash areas, 
+deposits may be unstable indicating a need to combine CP with coatings or design features that 
+minimize exposure. 
+In summary, effective use of cathodic protection in our shaft design must account for: 
+• 
+Deposit formation dynamics 
+• 
+Water chemistry and flow conditions 
+• 
+Material compatibility and surface design 
+These considerations help ensure the long-term durability and reliability of the propulsion system 
+under marine operating conditions. 
+ 
+03.1.5 Effect of Seawater Temperature 
+Temperature is one of the most influential environmental factors in the corrosion behavior of metals 
+immersed in seawater. It directly affects both the physicochemical properties of seawater and the 
+electrochemical kinetics of corrosion reactions. Generally, an increase in temperature accelerates 
+corrosion rates, particularly for active metals and alloys. 
+Several key temperature-dependent effects are observed: 
+1. Increased Corrosion Reaction Rates  
+Elevated temperatures enhance the rate of electrochemical reactions by increasing ion mobility and 
+decreasing solution viscosity. According to the Arrhenius relationship, a 10 °C rise in temperature can 
+double the corrosion rate of many metals. 
+
+--- Page 21 ---
+20 
+ 
+2. Reduction in Dissolved Oxygen (DO) Solubility  
+As temperature rises, the solubility of DO in seawater decreases, potentially limiting the availability of 
+oxygen at the metal surface. However, in natural systems, turbulence and replenishment often 
+compensate for this reduction, especially in high-flow conditions. 
+3. Acceleration of Localized Corrosion  
+Localized forms of corrosion such as pitting and crevice corrosion are particularly sensitive to 
+temperature. Many stainless steels exhibit a critical pitting temperature (CPT), above which passive 
+films break down rapidly. Therefore, even modest increases in temperature can shift materials from 
+safe operation to active corrosion zones. 
+4. Influence on Bioactivity  
+Higher temperatures promote the growth and metabolic activity of marine organisms, increasing the 
+risk of biofouling and microbiologically influenced corrosion (MIC). Warm, nutrient-rich waters are 
+especially susceptible to biofilm formation. 
+5. Effect on Deposit Formation and Solubility  
+The solubility of salts such as calcium carbonate and magnesium hydroxide decreases with increasing 
+temperature, which can enhance calcareous deposit formation on cathodically protected surfaces. 
+However, if flow velocity is high, deposits may be washed away before they adhere. 
+The seawater temperature varies by location, season, and depth. Surface waters in tropical regions can 
+reach 30 °C or higher, while polar regions remain below 5 °C. Seasonal fluctuations of up to 15 °C are 
+common in temperate zones. Moreover, industrial discharge, power plant outfalls, and shallow 
+enclosed basins can cause localized thermal elevation, creating corrosion “hot spots” for submerged 
+structures. [5] 
+Relevance to Shaft Design 
+In our project, the marine propulsion shaft is designed to operate in seawater at an average temperature 
+of 25 °C, placing it within the moderate to high-temperature range for typical marine environments. 
+This has several implications: 
+• 
+The selected material must withstand enhanced corrosion kinetics. For example, Duplex 2205 
+offers significantly better critical pitting temperature (CPT) performance than SS316L, making it 
+a more robust choice in warmer seawater. 
+• 
+Elevated temperature can accelerate localized corrosion in crevices, such as those found around 
+keyways, couplings, and seal interfaces. These areas must be carefully designed and, if needed, 
+protected with coatings or cathodic protection. 
+• 
+Reduced DO solubility at higher temperatures may shift corrosion control mechanisms. However, 
+the rotational speed (1200 RPM) of the shaft promotes continuous oxygen replenishment through 
+turbulence, maintaining corrosion potential. 
+• 
+Temperature-driven bioactivity can promote biofouling and MIC. This reinforces the need for 
+anti-fouling strategies, especially near low-flow regions or during long idle periods. 
+• 
+If cathodic protection is employed, elevated temperature could enhance calcareous deposit 
+formation, aiding in corrosion resistance provided that local flow conditions do not strip away 
+forming layers. 
+
+--- Page 28 ---
+27 
+ 
+In marine corrosion science, low resistivity indicates high ionic conductivity, meaning that seawater 
+can readily support galvanic currents, corrosion cells, and cathodic protection currents. Seawater, due 
+to its high salinity and ion content, is one of the most conductive natural electrolytes.[11] 
+ 
+ 
+Factors Affecting Resistivity 
+The resistivity of seawater depends on several key variables: 
+1. Salinity 
+o As the concentration of dissolved salts increases, more ions (e.g., Na⁺, Cl⁻, Mg²⁺, SO₄²⁻) are 
+available to carry electrical current. 
+o Therefore, higher salinity = lower resistivity. 
+2. Temperature 
+o Increasing temperature improves ion mobility, further reducing resistivity. 
+o Warmer water conducts electricity more efficiently than cold water. 
+3. Pollutants and Organic Matter 
+o Industrial discharges or biological activity may introduce ions or alter pH, slightly modifying 
+resistivity. 
+ 
+Typical Resistivity Values 
+In typical open-ocean seawater (salinity ~35 ppt), the resistivity ranges between 20 and 30 Ω·cm. 
+Table 3 in the source text shows resistivity values as a function of salinity and temperature, indicating 
+the following trends: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This table demonstrates that seawater at 35 ppt salinity and 25–30 °C conditions similar to your design 
+environment has resistivity between 22–26 Ω·cm, indicating a very conductive medium. 
+Engineering Implications 
+• 
+Low resistivity promotes galvanic corrosion, especially between dissimilar metals. 
+• 
+It also supports efficient current flow for cathodic protection systems, reducing anode 
+consumption and improving protection coverage. 
+• 
+Conversely, in high-resistivity environments (e.g., freshwater, deionized water), more current is 
+required, and protection may be less effective. 
+ 
+Table 3 - Seawater Resistivity (Ω·cm) as a Function of Salinity and Temperature [2] 
+
+--- Page 35 ---
+34 
+ 
+03.2.9 Erosion-Corrosion and Cavitation 
+Erosion-corrosion results from the combined action of fluid motion and electrochemical attack. In 
+marine propulsion shafts, it occurs in areas with high flow velocities, such as near seals, bearings, or 
+shaft exits. The mechanical force of the fluid removes protective oxide films, exposing fresh metal to 
+rapid corrosion. Cavitation, which involves bubble collapse near the surface, causes microjets that pit 
+the surface. 
+Stainless steels with insufficient hardness or protection are particularly vulnerable. Loss rates can 
+exceed 0.5 mm/year in turbulent flow. Typical damage appears as horseshoe-shaped grooves or pitting 
+aligned with flow direction [14], [18]. 
+ 
+ 
+ 
+ 
+ 
+ 
+Mitigation involves using erosion-resistant materials (e.g., duplex or martensitic stainless steels), 
+ensuring laminar flow design, applying hard coatings (e.g., tungsten carbide), and controlling shaft 
+alignment to prevent turbulence. Shaft velocity should be monitored to stay below cavitation 
+thresholds. 
+ 
+03.2.10 Fretting Corrosion 
+Fretting corrosion occurs at contact interfaces under cyclic vibration or small-amplitude oscillation. In 
+marine shafts, this typically arises at press-fits, splines, or couplings where relative motion disrupts 
+passive films. The exposed metal oxidizes, producing debris that further accelerates wear and 
+corrosion [13], [14]. 
+This mechanism often serves as a precursor to corrosion fatigue and is worsened by moisture, poor fit 
+tolerances, or shaft misalignment. It reduces the fatigue limit and can initiate cracks under moderate 
+cyclic stress. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Prevention involves precision machining for tight fits, use of anti-fretting coatings (e.g., MoS₂, PTFE), 
+and lubrication. Compressively stressed surfaces (e.g., shot-peened areas) resist fretting better. 
+Materials with higher hardness and stable passive films, such as duplex stainless steels, provide greater 
+resistance. 
+Figure 9 - Corrosion Erosion [16] 
+Figure 8 - Cavitation Corrosion  [16] 
+Figure 10 - Fretting Corrosion [24] 
+
+==============================
+MATERIAL SELECTION (Task 02 - Premakumara)
+==============================
+
+--- Page 36 ---
+35 
+ 
+The environmental analysis and corrosion mechanisms described in Section 3 establish the 
+fundamental performance demands placed on a marine propulsion shaft. Continuous exposure to high-
+salinity seawater, combined with cyclic torsional and bending stresses, creates a service environment 
+where both mechanical integrity and corrosion resistance are equally critical. The identified 
+degradation modes particularly pitting, crevice corrosion, galvanic interactions, and corrosion fatigue 
+require a material that can provide high strength, long-term durability, and inherent resistance to 
+chloride-induced damage. These environmental and operational constraints form the basis for the 
+material selection process described in Section 4, where candidate alloys are screened and ranked 
+using quantitative criteria and ANSYS Granta tools. 
+ 
+ 
+
+--- Page 37 ---
+36 
+ 
+04. Material Selection 
+The selection of a suitable material for the marine propulsion shaft is a critical step in ensuring safe 
+torque transmission, high fatigue life, corrosion resistance, and long-term reliability in seawater 
+environments. Because the shaft operates under combined torsional and bending loads while being 
+continuously exposed to chloride-rich seawater, the material must satisfy simultaneous mechanical, 
+corrosion, and manufacturability constraints. To ensure a systematic and defensible choice, the 
+material selection process in this project was carried out using the Ashby-based methodology 
+Translate, Screen, Rank, and Document supported by the ANSYS Granta EduPack software, which 
+enables quantitative filtering and comparison across a large materials database. 
+Design constraints such as minimum yield strength, fatigue strength at 107 cycles, seawater corrosion 
+resistance (including PREN ≥ 30), weldability, and hot forming compatibility were applied during the 
+screening stage to narrow an initial pool of over 1900 metals to a feasible set of candidates. 
+Subsequent ranking using performance indices (strength-to-density, stiffness-to-density, cost-per-unit 
+strength) provided a rational basis for comparing options under realistic marine shaft loading 
+conditions. 
+This section summarizes the material selection workflow, presents the shortlisted candidates produced 
+by ANSYS Granta (see Annex A for the full Granta selection report), and discusses their performance 
+using the exported ranking charts and datasheets. The full ANSYS Granta selection report and the final 
+material datasheet for Duplex Stainless Steel 2205 are included in the Appendix for traceability and 
+verification (see Annex B for the material datasheet of Duplex 2205).  
+ 
+04.1 Introduction 
+04.1.1 Background and Design Requirement 
+Marine propeller shafts operate in a harsh environment: cyclic mechanical loads from torque and 
+bending, exposure to saline water (leading to corrosion, pitting, crevice corrosion, stress corrosion 
+cracking), and sometimes elevated temperatures or variable loads. The shaft must transmit torque 
+reliably, resist fatigue failure and corrosion over long service life, yet remain manufacturable and cost-
+effective. 
+04.1.2 Objective of Material Selection 
+The objective is to find a material that balances the competing demands of strength, durability, 
+corrosion resistance, and cost. We employ a structured methodology (translate → screen → rank → 
+document) using ANSYS Granta (Granta EduPack or similar) to filter and compare candidate 
+materials. [22] 
+The final goal is to make a justified recommendation (with supporting data). 
+ 
+04.2 Methodology 
+04.2.1 General Material Selection Strategy (Translate – Screen – Rank – Document) 
+The methodology used in this study follows a structured, multi-stage approach to material selection 
+based on the framework popularized by Ashby and employed in engineering design practice. The four 
+main steps are: 
+1. Translate: convert real-world design requirements (loads, environment, geometry, constraints) 
+into quantitative functions, constraints, objectives, and free variables. 
+
+--- Page 38 ---
+37 
+ 
+• Function describes what the component must do (e.g. transmit torque, resist corrosion). 
+• Constraints are nonnegotiable property limits (e.g. minimum yield strength, maximum 
+allowable corrosion rate). 
+• Objectives are performance measures to maximize or minimize (e.g. minimize mass or 
+cost, maximize fatigue life). 
+• Free variables are the design parameters the engineer may vary (e.g. cross-section, 
+thickness). 
+This translation step ensures that subsequent filtering and ranking are rooted in the physics and usage 
+context of the component.  
+2. Screen (or reject): apply the constraints to eliminate materials that cannot meet the basic 
+requirements. This reduces the candidate set to only those feasible for the application. Common 
+constraints include yield strength, fatigue strength, corrosion resistance, manufacturability, cost 
+ceilings, etc. Materials failing any of these constraints are removed. The screening step uses 
+property charts or database filters.  
+ 
+3. Rank (or Select / Compare): among the screened materials, compute performance indices 
+(also known as merit indices) based on the objectives and free variables. These indices 
+(combinations of material properties) allow direct ranking of materials (higher is better, or 
+lower if minimizing). You may also handle multiple objectives via trade-offs, coupling 
+equations, or multi-stage ranking. Materials are sorted, compared, and candidates are selected.  
+ 
+4. Document (or Support): prepare a record of reasoning, data sources, assumptions, and 
+comparisons. Provide justification of the selected material relative to alternatives. Include raw 
+data, charts, decision paths, sensitivity analyses, and any caveats. 
+This “Translate → Screen → Rank → Document” paradigm helps maintain clarity, traceability, and 
+rational decision making. In real cases, iteration is often necessary: if the ranking yields no satisfactory 
+solution, one must revisit the translation step (relax or re-interpret constraints, adjust objectives) or 
+consider alternate designs. [22], [23], [24], [25] 
+ 
+04.2.2 Software Tool: ANSYS Granta EduPack 
+ANSYS Granta EduPack (formerly CES EduPack) is a materials and process selection tool widely 
+used in engineering education and early-stage design. 
+Key features: 
+• Material and Process Databases: a large, curated database of materials (metals, polymers, 
+composites, ceramics) and manufacturing processes, with associated mechanical, thermal, 
+chemical, and environmental properties. 
+• Graphical Selection (Charts / Stages): the ability to plot property charts (Ashby-style) and 
+overlay selection lines to visually screen materials. User can set axes (e.g. strength vs density) 
+and selection criteria (regions above, below, left, right).  
+
+--- Page 39 ---
+38 
+ 
+• Stage-Based Filtering: supports creation of multiple “stages” (sequential filters) to apply 
+constraints and refine selection gradually.  
+• Material Indices / Performance Indices Tools: it allows the definition of custom indices (e.g. 
+combining strength, density, cost) and calculation/ranking accordingly. 
+• Traceability and Reporting: as user apply filters, stages, and selections, the tool maintains 
+traceable records and lets user export summary reports and datasheets. 
+• Tutorials & “Getting Started” Guides: EduPack includes step-by-step tutorials and exercise 
+guides for new users.  
+• Education Focus: the tool is optimized for teaching materials decisions, showing links between 
+properties, processing, cost, and performance. [26] 
+In this project, we will use EduPack to: 
+• Input the translated constraints (yield strength, fatigue strength, corrosion metrics, 
+manufacturability) 
+• Filter the full database via stages to screen out infeasible materials. 
+• Define and apply performance indices to rank the remaining materials. 
+• Export the final selection report and material datasheet. 
+ 
+04.3 Design Requirements for Marine Propeller Shaft 
+04.3.1 Functional Requirements 
+The propeller shaft transmits torque from the engine to the propeller, while also resisting bending 
+forces from propeller thrust, hydrodynamic loading, and shaft misalignment. The component must: 
+• Carry a design torque corresponding to the vessel’s power without yielding (minimum yield > 
+66 MPa for 100 mm dia). 
+• Resist cyclic torsional stresses over long service life (≥ 10⁷ cycles). 
+• Maintain alignment and stiffness (torsional twist and bending deflection within tolerances). 
+• Operate reliably under combined torque, bending, and thrust loading. 
+ 
+04.3.2 Service Environment (Seawater Corrosion, Fatigue) 
+• Seawater at ~25 °C with high salinity is highly aggressive. Shaft material must resist pitting, 
+crevice corrosion, and stress-corrosion cracking (SCC). 
+• Corrosion fatigue is the dominant failure mode: cyclic stresses in chloride environment 
+accelerate crack initiation and growth. 
+• Potential galvanic coupling with propeller (bronze, Ni-Al-bronze) or couplings must be 
+considered. 
+• Surface durability (resistance to wear, corrosion at bearings and seals) is essential. 
+ 
+
+--- Page 40 ---
+39 
+ 
+04.3.3 Constraints (Mechanical, Corrosion, Manufacturing) 
+04.3.3.1 Mechanical constraints 
+• Yield strength ≥ 50 ksi (345 MPa) → for 100 mm shaft: ≥ 66 MPa minimum requirement 
+satisfied. 
+• Fatigue strength ≥ 30 ksi (207 MPa) at 10⁷ cycles. 
+• Adequate stiffness (Young’s modulus ~200 GPa typical for steels). 
+04.3.3.2 Corrosion constraints 
+• Pitting Resistance Equivalent Number (PREN) ≥ 30. 
+• SCC: not or slightly susceptible in chloride environment. 
+• Seawater resistance: acceptable/excellent rating required. 
+04.3.3.3 Manufacturing constraints 
+• Hot forming: acceptable/excellent. 
+• Weldability: good/excellent (repair and fabrication). 
+• Machinability sufficient for large-diameter shaft finishing. 
+• Material available in large bar/forging stock. 
+04.3.4 Objective (Safe, Cost-Effective, Durable Shaft) 
+The selected material must: 
+• Maximize service life by combining high fatigue strength and corrosion resistance in seawater. 
+• Minimize cost per unit strength (balance between corrosion-resistant Ni alloys and affordable 
+steels). 
+• Ensure manufacturability with forging, machining, and welding compatibility. 
+• Survive pitting and SCC risks through adequate PREN and duplex/austenitic alloy design. 
+[22], [23], [24] 
+Candidate materials surviving screening: 316L stainless, Duplex 2205. Subsequent ranking (by 
+cost/strength and PREN) will determine the optimum. 
+ 
+04.4 Material Screening 
+04.4.1 Constraints Applied in Ansys Granta 
+The Stage-2 screening in Ansys Granta used the following constraints (as configured in your selection 
+file): yield strength ≥ 50 ksi; fatigue strength at 10⁷ cycles ≥ 30 ksi; metal hot forming = 
+acceptable/excellent; weldability = good/excellent; salt water durability = acceptable/excellent; PREN 
+≥ 30; SCC susceptibility = not/slightly susceptible. 
+To visualize the outcome of the applied constraints, the yield strength vs. density Ashby chart 
+generated in ANSYS Granta is presented in Figure 1. The shaded gray region indicates the initial pool 
+of metals before screening, while the highlighted zones show the remaining feasible materials after all 
+
+--- Page 41 ---
+40 
+ 
+constraints were applied. As seen, the majority of alloys fall outside the acceptable limits, leaving only 
+about 25 candidate materials that satisfy the required mechanical, corrosion, and manufacturability 
+conditions. Among these, the two promising candidates Austenitic Stainless Steel AISI 316LVM (cold-
+worked) and Duplex Stainless Steel AISI 2205 (annealed) occupy the favorable region of the chart, 
+combining adequate yield strength with moderate density. This figure visually supports how the 
+database was refined to the final shortlist used for ranking in the subsequent stage. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+04.4.2 Shortlisted Materials after Screening 
+The first chart visualizes the distribution of metallic materials by yield strength and density. This 
+shows higher strength have 316LVM also higher density while AISI has lower strength and density. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 11 - Yield strength vs. density chart showing screened with filtered materials in gray color. [27] 
+ Density (lb/in^3)
+0.265
+0.27
+0.275
+0.28
+0.285
+0.29
+0.295
+0.3
+0.305
+Yield strength (elastic limit) (ksi)
+50
+100
+150
+200
+Stainless steel, duplex, AISI 2205, annealed
+Stainless steel, austenitic, AISI 316LVM, cold worked
+Figure 12 - Yield strength vs. density chart showing after removed filtered materials. It shows ASI 316LVM have 
+highest yield strength. [27] 
+
+--- Page 42 ---
+41 
+ 
+This plot compares stiffness among the remaining materials. Both 316LVM and 2205 occupy the upper 
+zone, showing AISI 2205 have lighter high stiffness. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Since torsion control depends on shear rigidity, next chart confirms that both shortlisted steels exhibit 
+similar shear modulus (~80 GPa equivalent), meaning both can maintain shaft twist within allowable 
+limits during operation. But AISI 2205 has higher torsion control with lighter. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fatigue behavior under cyclic torque is critical. Next plot showing, 316LVM clearly leads with higher 
+fatigue strength (≈60 ksi) compared to 2205 (≈40 ksi), but both exceed the design threshold of 30 ksi. 
+This confirms their capability to withstand long-term service loading. 
+ 
+ Density (lb/in^3)
+0.265
+0.27
+0.275
+0.28
+0.285
+0.29
+0.295
+0.3
+0.305
+Young's modulus (10^6 psi)
+27
+28
+29
+30
+31
+Stainless steel, duplex, AISI 2205, annealed
+Stainless steel, austenitic, AISI 316LVM, cold worked
+Figure 13 - Young’s Modulus vs. Density [27] 
+ Density (lb/in^3)
+0.265
+0.27
+0.275
+0.28
+0.285
+0.29
+0.295
+0.3
+0.305
+Shear modulus (10^6 psi)
+9.5
+10
+10.5
+11
+11.5
+12
+12.5
+Stainless steel, austenitic, AISI 316LVM, cold worked
+Stainless steel, duplex, AISI 2205, annealed
+Figure 14 - Shear Modulus vs. Density [27] 
+
+--- Page 43 ---
+42 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Next plot demonstrates the corrosion resistance advantage of Duplex 2205, which maintains a PREN 
+above 30, indicating strong resistance to chloride-induced pitting and crevice corrosion. In contrast, 
+316LVM lies near the lower limit, implying the need for additional corrosion control measures. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Finally, the cost-performance plot shows that both alloys lie in the same moderate cost range, well 
+below that of Ni-based alloys. Duplex 2205 achieves its corrosion advantage without significant cost 
+increase, making it the most balanced option. 
+ 
+ 
+ Density (lb/in^3)
+0.265
+0.27
+0.275
+0.28
+0.285
+0.29
+0.295
+0.3
+0.305
+Fatigue strength at 10^7 cycles (ksi)
+40
+60
+80
+100
+120
+Stainless steel, austenitic, AISI 316LVM, cold worked
+Stainless steel, duplex, AISI 2205, annealed
+Figure 15 - Fatigue Strength vs. Density [27]  
+ Density (lb/in^3)
+0.265
+0.27
+0.275
+0.28
+0.285
+0.29
+0.295
+0.3
+0.305
+Pitting resistance equivalent number (PREN)
+25
+30
+35
+40
+45
+50
+55
+Stainless steel, duplex, AISI 2205, annealed
+Stainless steel, austenitic, AISI 316LVM, cold worked
+Figure 16 - Pitting Resistance (PREN) vs. Density [27] 
+
+--- Page 44 ---
+43 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+These visual comparisons confirm that AISI 316LVM offers superior strength, while AISI 2205 
+provides better corrosion resistance and overall design balance. The summarized data for these 
+shortlisted materials are presented in Table 4 below. 
+ 
+Table 4 - A concise comparison (from Stage-4 comparison table in Ansys Granta see annex A) [27] 
+Attribute 
+316LVM 
+(50% CW) 
+Duplex 2205 
+(annealed) 
+Ni-Cr-Mo (ILLIUM 
+98, cast) 
+Yield strength (ksi) 
+107–141 
+66.7–74 
+37–46.4 
+Young’s modulus (10⁶ psi) 
+28 – 29 
+29 – 30 
+27 – 28 
+Shear modulus (10⁶ psi) 
+10.7 – 11.2 
+11.3 – 11.6 
+10 – 10.4 
+Fatigue strength at 10⁷ (ksi) 
+58.5–68.2 
+37.9–41.9 
+18.9–29.7 
+PREN 
+24.4–31.2 
+30.5–37.8 
+(High 30s–40s class) 
+SCC Resistance 
+Slightly 
+susceptible 
+Not 
+susceptible 
+Not susceptible 
+Cost per unit strength (relative)* 
+0.080–0.096 
+0.089–0.102 
+0.429–0.598 
+ 
+*As reported in the Granta “Cost per unit of strength” field. Data sources for each row: mechanical 
+properties and durability from the comparison pages; PREN and SCC notes from the corrosion section. 
+ 
+Interpretation for the next stage (Ranking): 316LVM delivers the strongest mechanical performance 
+but only marginal PREN margin; Duplex 2205 balances strength with robust chloride resistance and 
+benign SCC behavior; Ni-Cr-Mo excels in pitting/crevice resistance but at significant penalties in 
+strength and cost. These trade-offs will be formalized with performance indices in Section 04.5. 
+ Density (lb/in^3)
+0.265
+0.27
+0.275
+0.28
+0.285
+0.29
+0.295
+0.3
+0.305
+Price per unit volume (USD/ft^3)
+500
+1000
+2000
+5000
+10000
+Stainless steel, duplex, AISI 2205, annealed
+Stainless steel, austenitic, AISI 316LVM, cold worked
+Figure 17 - Price per Unit Volume vs. Density [27] 
+
+--- Page 45 ---
+44 
+ 
+04.5 Material Ranking 
+04.5.1 Use of Material Indices (Strength/Density, Corrosion Resistance) 
+Once screening is complete, the shortlisted materials must be ranked. Ranking is not done by single 
+properties but by material indices combinations of properties that best measure performance for the 
+given function. 
+For a propeller shaft under torsion: 
+• Strength-limited torsion index (minimum mass design) is: 
+𝑃=
+𝜎𝑓
+2/3
+𝜌 
+where 𝜎𝑓 = fatigue strength at 10⁷ cycles, 𝜌 = density. Materials with higher values give lighter shafts 
+for the same safe torque. 
+• Stiffness-limited torsion index (control of angle of twist) is: 
+𝑃= 𝐺1/2
+𝜌 
+where 𝐺 = shear modulus, 𝜌 = density. Higher values mean reduced twist per unit mass. 
+• Corrosion resistance index: for marine shafts, the Pitting Resistance Equivalent Number 
+(PREN) is used. Ranking by PREN ≥ 30 ensures minimum seawater resistance, and higher 
+PREN provides greater safety against pitting and crevice corrosion. 
+• Cost-weighted indices: Cost per unit strength and cost per unit stiffness adjust the above 
+indices by material price. This highlights trade-offs between corrosion performance and 
+economic viability. 
+Thus, final ranking must consider both mechanical performance indices and corrosion indices, with 
+cost as a secondary objective. [28] 
+ 
+04.5.2 Performance Comparison of Candidates 
+To better understand the trade-offs among candidate materials, the Ansys Granta material charts were 
+examined. These maps visualize how the shortlisted alloys compare in terms of cost, mass efficiency, 
+and corrosion resistance under torsional loading conditions. The first chart relates cost per unit strength 
+to mass per unit strength, revealing which alloys provide lightweight and economical performance for 
+cyclic loading in a shaft. 
+A second chart plots pitting resistance equivalent number (PREN) against cost per unit strength, 
+highlighting the corrosion–cost trade-off between the candidates. Materials in the upper-left region 
+combine high corrosion resistance with acceptable cost, representing ideal choices for seawater 
+service. 
+ 
+ 
+ 
+ 
+
+--- Page 46 ---
+45 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 18 - Material performance map showing the relationship between cost per unit strength and mass per unit strength for marine 
+shaft materials under cyclic torsion. 316LVM and Duplex 2205 occupy the most favorable region, balancing mass efficiency with 
+moderate cost, while Ni-Cr-Mo alloys lie in the high-cost range. [27] 
+Figure 19 - Material performance map of PREN versus cost per unit strength. Duplex 2205 offers the best compromise of corrosion 
+resistance and cost, 316LVM sits near the minimum acceptable corrosion threshold, and Ni-Cr-Mo alloys provide superior protection 
+at a significant cost penalty. [27] 
+
+--- Page 47 ---
+46 
+ 
+Table 5 - From the Granta comparison table (See annex A) [27] 
+Property / Index 
+316LVM (CW) 
+Duplex 2205 
+(Annealed) 
+Ni-Cr-Mo 
+(ILLIUM 98, cast) 
+Fatigue Strength at 10⁷ (ksi) 
+58.5–68.2 
+37.9–41.9 
+18.9–29.7 
+Density (lb/in³) 
+0.287–0.290 
+0.282–0.283 
+0.300–0.303 
+Strength/Density (Index) 
+≈200–230 
+MPa/(Mg/m³) 
+≈135–150 
+MPa/(Mg/m³) 
+≈60–100 
+MPa/(Mg/m³) 
+PREN 
+24.4–31.2 (borderline) 30.5–37.8 (safe 
+margin) 
+~35–40+ (very high) 
+SCC Resistance 
+Slightly susceptible 
+Not susceptible 
+Not susceptible 
+Cost per unit strength 
+0.080–0.096 
+0.089–0.102 
+0.429–0.598 
+ 
+Interpretation: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+• 316LVM leads in mechanical strength and fatigue index but barely meets the corrosion 
+requirement (PREN near the cutoff). Risk of pitting in long-term seawater service. 
+• Duplex 2205 achieves a strong balance: adequate fatigue strength, excellent SCC resistance, 
+PREN comfortably above 30, and only slightly higher cost than 316LVM. 
+• Ni-Cr-Mo alloy (ILLIUM 98) offers the best corrosion resistance (PREN high 30s–40s) but 
+suffers from poor strength and 4–6× cost penalty, making it impractical for large shafts. 
+ 
+Figure 20 - Ashby-style comparison of shortlisted marine shaft materials showing fatigue strength versus density, with color representing 
+pitting resistance (PREN) and marker size representing relative cost. 316LVM offers the highest strength but marginal corrosion margin; 
+Duplex 2205 provides balanced strength, corrosion resistance, and cost; Ni-Cr-Mo (ILLIUM 98) exhibits excellent corrosion resistance 
+but low strength and high cost. 
+
+--- Page 48 ---
+47 
+ 
+Ranking outcome: 
+• 1st choice: Duplex 2205 (optimum balance of fatigue, corrosion, cost). 
+• 2nd choice: 316LVM (higher strength but corrosion borderline). 
+• 3rd choice: Ni-Cr-Mo alloy (overkill corrosion resistance, uneconomical). 
+ 
+04.6 Results and Discussion 
+04.6.1 Comparison Table of Top Candidates (316L, Duplex 2205, NiCrMo Alloy) 
+ 
+Table 6 - Summarized from the Granta comparison table and corrosion resistance database see annex A. [27] 
+Attribute 
+316LVM (Austenitic, 
+CW) 
+Duplex 2205 
+(Annealed) 
+Ni-Cr-Mo Alloy 
+(ILLIUM 98, 
+Cast) 
+Yield Strength (ksi) 
+107 – 141 
+66.7 – 74 
+37 – 46.4 
+Fatigue Strength at 10⁷ (ksi) 
+58.5 – 68.2 
+37.9 – 41.9 
+18.9 – 29.7 
+Density (lb/in³) 
+0.287 – 0.290 
+0.282 – 0.283 
+0.300 – 0.303 
+PREN (Pitting Resistance Eq. 
+No.) 
+24.4 – 31.2 
+(borderline) 
+30.5 – 37.8 
+(safe) 
+~35 – 40+ (very 
+high) 
+Stress Corrosion Cracking 
+Slightly susceptible 
+Not susceptible 
+Not susceptible 
+Cost per Unit Strength 
+0.080 – 0.096 
+0.089 – 0.102 
+0.429 – 0.598 
+Weldability 
+Excellent 
+Good 
+Good 
+Hot Forming 
+Excellent 
+Acceptable 
+Unsuitable 
+Seawater Resistance 
+Good 
+Good/High 
+Excellent 
+ 
+Engineering Interpretation (Strength vs Corrosion vs Cost) 
+• 316LVM: 
+Mechanically the strongest, with yield > 100 ksi and fatigue strength > 60 ksi, making it attractive for 
+high torque capacity and long fatigue life. However, its PREN only just exceeds 30, meaning in warm, 
+chloride-rich seawater it is on the edge of acceptable resistance. Pitting and crevice corrosion remain 
+risks for long-term immersion. [29] 
+• Duplex 2205: 
+A balanced candidate. Its yield and fatigue strengths are safely above the design constraint (≥ 66 MPa 
+yield, ≥ 30 ksi fatigue). While not as strong as 316LVM, its duplex microstructure provides high 
+resistance to stress corrosion cracking and PREN consistently above 30. Manufacturing and welding 
+are feasible, and its cost per unit strength is close to 316LVM. This alloy is widely adopted in marine 
+shafting because it balances mechanical and corrosion requirements without major economic penalty. 
+[30], [31] 
+
+--- Page 49 ---
+48 
+ 
+• Ni-Cr-Mo Alloy (ILLIUM 98): 
+Corrosion-wise, this alloy is superior, with PREN in the high 30s–40s, effectively immune to seawater 
+pitting. However, its yield and fatigue strengths are the lowest of the three, and its cost per unit 
+strength is 4–6× higher. For large-diameter shafts, this cost is prohibitive. Thus, while technically 
+robust against corrosion, it is impractical for full-shaft applications and is better suited for smaller, 
+high-corrosion components (e.g., impellers, pump housings). [32] 
+ 
+04.6.2 Recommended Material 
+Based on the performance indices (strength/density, stiffness/density, cost/strength) and corrosion 
+resistance considerations: 
+• Duplex Stainless Steel 2205 is recommended as the optimal material for the marine propeller 
+shaft. 
+It provides: 
+• Adequate mechanical strength for torque and fatigue loading, 
+• High resistance to chloride-induced pitting and complete immunity to stress corrosion 
+cracking, 
+• A reasonable cost level compared with Ni-based alloys, 
+• Proven service record in marine shafts and structural components. 
+316LVM remains a viable backup if cost and availability of Duplex 2205 become issues, but only with 
+careful corrosion protection strategies (cathodic protection, coatings). 
+Ni-Cr-Mo alloy is eliminated on cost/strength grounds despite superior corrosion performance. 
+ 
+04.6.3 Justification – Duplex Stainless Steel 2205 Is the Final Choice 
+The selection of Duplex Stainless Steel 2205 is supported by a balanced combination of mechanical, 
+corrosion, and economic performance metrics revealed through the ANSYS Granta screening and 
+ranking stages. While austenitic 316LVM demonstrated superior tensile and fatigue strength, its pitting 
+resistance (PREN 24 – 31) lies only marginally above the seawater durability threshold, making it 
+vulnerable in long-term immersion. Ni–Cr–Mo alloys, although exceptionally corrosion-resistant, were 
+eliminated due to their limited mechanical strength and significantly higher cost. 
+Duplex 2205 offers an optimal compromise: a yield strength of 66 –74 ksi and fatigue strength of 38 –
+42 ksi well above the design minimum combined with a PREN range of 30.5 – 37.8, ensuring reliable 
+resistance to pitting, crevice corrosion, and stress corrosion cracking in chloride-rich environments. Its 
+balanced ferritic–austenitic microstructure provides superior toughness and fracture resistance 
+compared to other candidates, while its weldability and manufacturability remain acceptable for large-
+diameter shaft fabrication. Importantly, Duplex 2205 achieves this performance without the substantial 
+cost penalty associated with nickel-rich alloys. 
+Based on these combined factors, Duplex Stainless Steel 2205 emerges as the most technically and 
+economically viable material for the marine propulsion shaft, ensuring long service life and 
+operational safety under aggressive marine conditions. 
+ 
+
+==============================
+CORROSION PROTECTION
+==============================
+
+--- Page 50 ---
+49 
+ 
+04.7 Conclusion 
+The material selection process for the marine propeller shaft was conducted using the structured 
+methodology of Translate – Screen – Rank – Document. Key constraints were applied to ensure 
+mechanical strength (yield ≥ 66 MPa, fatigue ≥ 30 ksi), manufacturability (weldability, hot forming), 
+and corrosion resistance (PREN ≥ 30, SCC not susceptible). 
+From over 1900 candidate materials in the Ansys Granta database, 25 survived screening. The 
+proposed options – 316L stainless steel, Duplex 2205, and Ni-Cr-Mo alloys – were confirmed in this 
+shortlist. 
+Ranking using performance indices (strength/density, stiffness/density, cost/strength) combined with 
+corrosion metrics (PREN) revealed: 
+• 316LVM: very high strength but borderline corrosion resistance. 
+• Ni-Cr-Mo alloy: superior corrosion resistance but weak and uneconomical. 
+• Duplex 2205: strong balance between strength, fatigue resistance, PREN (>30), immunity to 
+SCC, and moderate cost. 
+Recommended material: Duplex Stainless Steel 2205 (UNS S31803/S32205) is the optimal choice for 
+the propeller shaft, offering durability, safety, and cost-effectiveness in seawater immersion conditions. 
+(To see the data sheet of selected material go to annex B) 
+ 
+ 
+
+--- Page 51 ---
+50 
+ 
+05. Corrosion Protection Strategy 
+Marine propulsion shafts operate in one of the most corrosive engineering environments, where 
+continuous exposure to high-salinity seawater, oxygen gradients, wet–dry cycling, and hydrodynamic 
+stresses can rapidly degrade metallic surfaces. Even alloys with strong intrinsic corrosion resistance 
+such as Duplex Stainless Steel 2205 require supplementary protection to prevent localized attack such 
+as pitting, crevice corrosion, galvanic coupling, and corrosion-fatigue. A long-term protection strategy 
+must therefore integrate electrochemical control and engineered surface treatments to reduce the 
+corrosion rate, limit hydrogen uptake, maintain coating integrity, and ensure that the shaft remains 
+structurally reliable throughout its service life. 
+This section evaluates two complementary approaches: 
+• 05.1 – Surface Treatments and Coating Systems, detailing mechanical surface conditioning, 
+chemical passivation, multilayer marine coatings, and specialized localized treatments for journals and 
+splines. 
+• 05.3 – Cathodic Protection (CP), assessing galvanic and ICCP systems, current-demand 
+calculations, shaft earthing requirements, and hydrogen-related constraints for duplex steels. 
+Together, these methods form a multi-layer corrosion-prevention strategy suitable for long-term 
+operation under seawater immersion and splash-zone conditions. 
+05.1 Surface Treatment & Coating Design for Marine Propulsion Shaft 
+ 
+05.1.1 Shaft Parameters 
+ 
+✓ Shaft length: 1.6 m 
+✓ Outer diameter: 125 mm 
+✓ Inner diameter: 60 mm (hollow shaft) 
+✓ Engine power: 300kW 
+✓ Torque: 12.6 kNm 
+✓ Rotational speed: 225 RPM 
+✓ Material: Duplex Stainless Steel 2205 
+✓ Prepared by: CNC machining  
+✓ Treated by: Solution annealing  
+✓ Corrosion rate (untreated): 0.2 mm/year 
+ 
+05.1.2 Marine Propeller Shaft Environment 
+• 
+Type of environment: Seawater immersion and splashing zone. 
+• 
+Temperature: Around 25 °C average. 
+• 
+Salinity: Approximately 3.5% (35 ppt), high chloride concentration  
+• 
+Electrochemical nature: Seawater acts as a strong electrolyte, accelerating corrosion reactions  
+Figure 21 - Final shaft geometry 
+
+--- Page 60 ---
+59 
+ 
+compounds) or by creating smooth, non-fouling surfaces that prohibit organisms from securely 
+attaching themselves. Anti-fouling coatings aid in smooth rotation, lower maintenance needs, and 
+reduce fouling-induced corrosion.[41], [42] 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Common Types of Anti-Fouling Coatings Used for Shafts 
+1. Self-polishing/ablative coatings: They gradually wear away to provide exposure to fresh biocide. 
+2. Hard matrix coatings: These coatings provide a slow release of biocide and provide excellent 
+resistance to abrasion. 
+3. Foul-release silicone coatings: These coatings create non-toxic, smooth surfaces that will not deposit 
+marine growth. 
+ The two primary benefits of an anti-fouling layer are as follows 
+o The anti-fouling layer prevents the attachment of marine growth such as barnacles, algae, and 
+slime. 
+o The anti-fouling layer allows a propeller shaft to maintain its hydrodynamic efficiency by 
+decreasing drag and allowing smooth rotation. 
+In addition, an anti-fouling layer can prevent the localized corrosion that is associated with marine 
+growth by maintaining the protective coating over the areas that accumulate marine growth. The 
+amount of time between cleaning and inspecting the propeller shaft can also be increased by using an 
+anti-fouling layer.  
+We should note the following when applying the anti-fouling material 
+• The anti-fouling material must be applied to a fully cured polyurethane topcoat for maximum 
+adhesion. 
+• Be sure the anti-fouling coating you are using is compatible with the existing coating. 
+• Depending on the geometry of the shaft, the anti-fouling material can be applied by brush or 
+spray. 
+• For long-term services, you should periodically check the anti-fouling layer for effectiveness. 
+ 
+05.1.4.5. Dry film lubricant coatings (only for splined area)  
+A Dry Film Lubricant (DFL) Coating is the easiest and most practical Way to coat the splines. DFL 
+Coating is typically Resin Bonded Molybdenum Disulfide (MoS2). The multipart approach of using a 
+DFL Coating provides a simple, practical way to create extremely low-friction surfaces with high Anti-
+Figure 28- After applying the anti-fouling layer on the shaft 
+
+--- Page 61 ---
+60 
+ 
+Galling Properties, Without Requiring Dramatic Logistical Changes. The application process includes 
+Conventional Spray Application in Thin Coats, 8-20mm thick, with preparation for the Application 
+including the sanding (Grit Blasting) of the surfaces being treated, followed by either Air Cured or 
+Low-Temperature Thermal Cured DFL Coating. Because of the nature of DFL Coating’s simple, 
+practical method of application, it does not require the use of High-Vacuum Chambers (for PVD) or 
+High-Velocity Robotics. For a localized application on a shaft that measures 1.5 meters and the need 
+for PVD methods would be counterproductive, as both PVD and HVOF would be costly and 
+impractical alternatives due to the time and expense associated with them.[43] 
+ 
+05.1.5 Summary 
+Stage 1: Universal Surface Preparation 
+Universal Surface Preparation, where the entire shaft undergoes a series of mechanical and chemical 
+treatments. This sequence starts with mechanical polishing to refine the surface and is followed by shot 
+peening to improve the surface's resistance to fatigue. The shaft is then thoroughly cleaned via alkaline 
+degrease and a subsequent rinse to remove all contaminants. Finally, the surface is chemically treated 
+with pickling to remove any scale or oxides, which is then immediately followed by a neutralization 
+step to halt the acid's chemical reaction, leaving the surface ready for the specialized finishing stages. 
+ 
+Stage 2: Primary Protection and Painting (General Shaft Body) 
+For the general shaft body, excluding the bearing journals, the first protective step is passivation using 
+citric acid to enhance the material's inherent corrosion resistance. This is followed by the application 
+of a high-build marine epoxy coating, which serves as a robust barrier against the seawater 
+environment. The third step involves applying a polyurethane top coat to provide durability, UV 
+resistance, and a stable finish. Finally, an anti-fouling layer is applied as the outermost protection to 
+prevent the attachment and growth of marine organisms. 
+ 
+Stage 3: Specialized Area Treatments 
+The bearing journals diverge from the main process immediately after the universal surface 
+preparation is complete, receiving only electropolishing as suitable to achieve the required ultra-
+smooth finish for optimal bearing performance. Separately, the splined area is the last component to be 
+treated, where a dry film lubrication coating must be applied after all other processes are finalized, 
+ensuring reduced friction and resistance to wear and galling in this critical mechanical interface. 
+ 
+05.1.6 Coating Breakdown Factor   
+ 
+Typically, the coating breakdown factor represented as fc, the coating breakdown factor is a 
+dimensionless metric that measures how likely it is that a protective coating will fail during its design 
+life. It is frequently used in the chemical, offshore, and marine industries to assess coating performance 
+and the necessity of extra protection, like cathodic protection. 
+Low fc provides an effective and durable coating, while coatings with a high fc value may fail and 
+require supplementary protection. [44] 
+
+--- Page 70 ---
+69 
+ 
+05.3 Cathodic Protection (CP) Mechanisms for Marine Propeller Shaft  
+05.3.1 Overview 
+Cathodic protection reduces corrosion by lowering a structure’s electrochemical potential until anodic 
+dissolution becomes negligible. In seawater, CP is applied by either galvanic (sacrificial) anodes or 
+impressed current systems (ICCP). ISO 12473 defines the principles, criteria and instrumentation for 
+seawater CP, and notes that residual corrosion rates < 10 µm/yr are typically achieved when CP is fully 
+effective; it also recognizes hybrid arrangements combining galvanic anodes with ICCP where 
+appropriate [49].  
+The design framework most widely used in practice is DNV-RP-B401 (current densities, coating 
+breakdown factors, anode capacity/utilization, protection criteria), complemented by class guidance for 
+ships from ABS (arrangements, shaft bonding/grounding, ICCP placement/controls) [47], [50].  
+ 
+05.3.2 Galvanic (sacrificial) anode CP 
+05.3.2.1 Working principle 
+Sacrificial anodes are alloys (Al-Zn-In, Zn, rarely Mg in seawater) with more negative free-corrosion 
+potentials than the protected steel. They self-deliver current to polarize the structure towards the 
+protection potential (≈ -0.80 V vs Ag/AgCl/seawater for steel zones). The current output follows 
+Ohm’s law with the driving voltage given by the anode–structure potential difference and limited by 
+electrolyte resistance/anode geometry [49].  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+05.3.2.2 Anode alloys and electrochemical properties 
+ABS summarizes compositions and practical properties. For aluminum anodes (preferred in seawater 
+for high capacity/low mass), typical closed-circuit potentials are ~-1.05 to -1.15 V (Ag/AgCl), with 
+practical current capacities ≈ 2500 A·h/kg at ~25 °C (consumption ≈ 3.5 kg/A·yr). “Low-voltage” Al 
+alloys (e.g., MIL-DTL-24779B) operate around -0.80 to -0.90 V with lower capacity. Zinc anodes 
+operate near -1.00 to -1.05 V with capacity ≈ 760-780 A·h/kg; Mg is rarely used in seawater due to 
+overprotection and low efficiency. Temperature derates Al capacity approximately linearly (e.g., 2500 
+→ 500 A·h/kg from 25 → 80 °C) [50]. 
+Table 9 - Summary of Potentials versus Ag/AgCl/Seawater Reference Electrode Recommended for the Cathodic Protection of 
+Various Metals in Seawater  [36] 
+
+--- Page 71 ---
+70 
+ 
+05.3.2.3 Arrangement on ships and appendages 
+ABS gives placement and spacing rules for hull zones and, crucially, notes that where a central CP 
+system is absent, propellers and shafts can be protected by zinc ring anodes mounted on the hub/shaft. 
+Care is required near the stern to avoid hydrodynamic penalties and to keep anodes out of “no-anode” 
+zones adjacent to props [50].  
+ 
+05.3.2.4 Advantages/limitations  
+Advantages: intrinsically fail-safe (no power), simple, predictable consumption (capacity-based 
+sizing), minimal topside hardware.  
+Limitations: fixed driving voltage (no closed-loop control); potential can drift with 
+salinity/temperature/flow; higher mass and drag; risk of over-polarization in local spots (hydrogen 
+side-reaction) if anode selection/placement is aggressive; periodic diver replacement. For duplex 
+steels, avoiding unnecessarily negative potentials is desirable to minimize hydrogen uptake [48].  
+ 
+05.3.3 Impressed-Current Cathodic Protection (ICCP) 
+05.3.3.1 Working principle and hardware 
+ICCP uses inert anodes (e.g., platinized-Ti/MMO) fed by a DC power supply; reference electrodes 
+(Ag/AgCl) mounted on the hull provide feedback so the controller maintains a set potential. ISO 
+12473 explicitly cites the large, adjustable driving voltage of ICCP as a core advantage; it also shows 
+secondary anodic reactions (H₂, Cl₂ evolution) that motivate the use of dielectric shields near anodes to 
+protect paint/steel. ABS illustrates standard recessed/guarded ICCP anodes and gives minimum 
+distances to coatings and shield widths to mitigate chemical attack from gas evolution [49], [50].  
+ 
+05.3.3.2 Control, measurement, and placement 
+ABS requires proper placement of reference electrodes between anodes and critical features (e.g., 
+propellers), with separation and symmetry rules; it also mandates controller accuracy and logging, and 
+describes installation geometry for stern areas [50].  
+ 
+05.3.3.3 Advantages/limitations 
+Advantages: Set-point control of hull potential (fine-tuning to avoid over-polarization); low 
+hydrodynamic penalty (few, recessed anodes); scalable current output for fouling/waterline variability. 
+ 
+Limitations: Needs power and electronics; requires dielectric shields and careful electrode placement; 
+risk of stray-current effects or coating damage if misconfigured. For duplex steels, ICCP’s tight set-
+point control directly supports HISC-avoidance by holding potentials near protection levels but not 
+excessively negative [50].  
+ 
+ 
+ 
+
+--- Page 80 ---
+79 
+ 
+05.3.8.5.2 Post-Launch Commissioning 
+1. Baseline Readings: Measure natural potential of the hull and shaft (typically -0.60 V to -0.65 
+V vs Ag/AgCl). 
+2. Energize System: Switch on the ICCP controller. 
+3. Shaft Monitoring: With the shaft rotating at low RPM, measure the potential difference 
+between the Shaft and the Hull using a handheld mV meter. 
+⮚ Pass Criteria: Potential difference < 50 mV. 
+⮚ If > 50 mV, the brushes are not grounding the shaft effectively; check spring tension or 
+run-in the slip ring. 
+4. Stability: Verify controller holds the stern zone set-point (-0.80 V) ± 10 mV [56]. 
+ 
+ 
+05.3.8.6 Maintenance Schedule 
+Because the system uses inert MMO anodes and automatic control, maintenance is primarily 
+monitoring rather than replacement [50]. 
+Table 14 - Maintenance Schedule 
+Interval 
+Action 
+Success Criteria 
+Weekly 
+Panel Log: Record Voltage (V), Current (A), 
+and Reference Potential (mV). 
+Current matches operational 
+baseline; Potential stable at -
+0.80 V. 
+Quarterly 
+Shaft Earthing Check: Visual inspection of 
+brushes and slip ring. 
+Brushes move freely in 
+holders; Slip ring is free of 
+oil/grease. 
+Quarterly 
+Shaft mV Check: Measure voltage between 
+Shaft and Hull while running. 
+Voltage difference < 50 mV. 
+Annual 
+Brush Replacement: Check brush length. 
+Replace if worn below 
+manufacturer's limit (typically 
+50%). 
+Dry-Dock 
+(5yr) 
+Shield & Anode Inspection: Check 
+dielectric shield for blistering; check anode 
+for physical impact damage. 
+Shield intact; Anode MMO 
+coating intact (dark grey 
+appearance). 
+ 
+05.3.8.7 Cost Model 
+05.3.8.7.1 CAPEX (Capital Expenditure) 
+● ICCP Hardware: 10A Minitek System (Controller + 1 Anode + 1 Reference Cell) ≈ $5,000 – 
+$8,000 (Estimate). 
+● Shaft Earthing: Silver-graphite slip ring assembly ≈ $1,500 – $2,500. 
+
+==============================
+MECHANICAL DESIGN (Geometry, Torque, Power)
+==============================
+
+--- Page 82 ---
+81 
+ 
+lubrication—provides a robust physical barrier against chloride penetration, erosion, UV damage, and 
+marine growth. When combined, these methods form a synergistic protection system: the coatings 
+reduce the CP current demand and stabilize the surface chemistry, while CP ensures protection in areas 
+where coatings are damaged or inaccessible. 
+Accordingly, the final corrosion-protection strategy for the designed propulsion shaft adopts both 
+approaches: a multilayer coating and surface-treatment system integrated with a controlled ICCP 
+cathodic-protection system. This hybrid approach maximizes durability, minimizes maintenance 
+requirements, and ensures that the shaft maintains its mechanical and corrosion-fatigue performance 
+over the intended service life. 
+ 
+ 
+
+--- Page 83 ---
+82 
+ 
+06. Mechanical Design 
+The mechanical design of a marine propulsion shaft requires a rigorous evaluation of both analytical 
+and numerical performance criteria to ensure safe and reliable torque transmission under the combined 
+effects of torsion, bending, axial loading, and dynamic excitation. The shaft operates as a critical 
+structural component within the propulsion line, transmitting power from the engine to the propeller 
+while simultaneously resisting complex loading conditions induced by propeller thrust, hydrodynamic 
+forces, and rotational dynamics. This section presents the complete mechanical design methodology 
+applied in this project, beginning with the analytical determination of shaft geometry and torque 
+transmission capacity, followed by validation through finite-element analysis (FEA). 
+Subsection 06.1 describes the derivation of the final shaft geometry through classical strength of 
+materials approaches, IACS-based diameter selection formulas, vibration analyses, and fatigue 
+calculations. These steps ensure that the chosen shaft dimensions meet both classification-society 
+requirements and practical performance targets. Subsection 06.2 presents the FEA-based verification 
+of the shaft’s behavior under static and cyclic loads, including stress distribution, deformation patterns, 
+natural frequencies, and corrosion-fatigue considerations. Together, these analyses form the foundation 
+of the final mechanical design and confirm that the shaft configuration satisfies strength, stiffness, 
+vibration, and fatigue life criteria for long-term marine operation. 
+ 
+06.1 Deign of Shaft Geometry and Torque Transmission Calculation  
+06.1.1 Introduction 
+The design of a marine propulsion shaft is a critical engineering task that involves identifying the 
+appropriate geometry and ensuring it can withstand the mechanical stresses experienced during 
+operation. This shaft transmits the engine's mechanical power to the propeller, providing the necessary 
+thrust for the vessel. As the core component of the shafting system, the shaft design and geometry must 
+be robust, able to handle torsional and bending stresses, and resistant to wear and corrosion due to 
+prolonged exposure to seawater. 
+This section focuses on the shaft design process, where key parameters such as length, diameter, and 
+material selection are evaluated. Additionally, the torque transmission capacity and the shaft's ability to 
+withstand torsional shear, bending, and fatigue loads are considered, along with the most suitable 
+geometry for the shaft. The material properties also play a crucial role in ensuring the shaft’s strength, 
+corrosion resistance, and longevity. 
+ 
+06.1.2 Objectives 
+➢ Define the design parameters for the marine propulsion shaft based on operational requirements 
+and environmental conditions. 
+➢ Identify the optimal geometry for the shaft, ensuring it meets the required strength and 
+performance standards while minimizing material waste. 
+➢ Establish the torque transmission capacity and ensure that the shaft can safely handle the forces 
+generated during normal operation. 
+➢ Optimize the shaft dimensions to reduce the risk of failure due to torsional or bending stresses 
+while maintaining the structural integrity and performance under all operating conditions. 
+
+--- Page 88 ---
+87 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+06.1.4.1.7 Bearing  
+Bearings are strategically positioned along the shaft line to ensure proper alignment and structural 
+support. Their functions include providing static support to the shaft, as well as acting as dynamic 
+support to limit lateral vibrations. The number and placement of bearings are determined based on 
+shaft alignment calculations and classification society requirements. 
+In typical arrangements, two or more bearings are installed within the stern tube to counteract the 
+bending moments induced by the propeller. Additional bearings may be required along the 
+intermediate shaft, depending on shaft length and operational conditions. While many shafting system 
+manufacturers design and assemble complete propulsion systems, bearings themselves are often 
+procured from specialized third-party suppliers. 
+A critical component of the bearing system is the thrust bearing, which is designed to absorb the axial 
+forces generated by the propeller during operation. This bearing prevents axial displacement of the 
+shaft while also damping axial vibrations. Thrust bearings may be installed as separate units along the 
+shaft line or integrated within the gearbox, depending on the propulsion system configuration.[63] 
+ 
+ 
+06.1.4.2 Static loads  
+The propulsion shaft of a marine vessel is subjected to several types of static loads during operation. 
+These loads arise from torque transmission, propeller thrust, and self-weight effects, and they combine 
+to produce complex stress states in the shaft material. The main static loads can be summarized as 
+follows. 
+• 
+Torsional shear stress due to the torque transmitted along the shaft. 
+• 
+Axial normal stress resulting from propeller thrust transmitted to the hull. 
+• 
+Bending stresses (normal and shear) are induced by transverse loads such as the weight of the 
+shaft, propeller, and hydrodynamic effects. 
+Figure 40 - Different types of propellers design 
+Figure 39 - Propeller of a ship 
+
+--- Page 89 ---
+88 
+ 
+When multiple loads act simultaneously, the stress distribution is non-uniform. Shear stress from 
+transverse loads is maximum at the shaft center and decreases towards the outer surface, whereas 
+bending and torsional stress are maximum at the surface and zero at the center. Since the magnitude of 
+transverse shear is generally small compared to bending and torsional stresses, it is often neglected in 
+shaft design. The critical design condition therefore occurs at the outer shaft surface (region B in 
+Figure 41). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+06.1.4.2.1 Equivalent Stress and Von Mises Criterion 
+For ductile materials such as steel, the distortion energy theory (Von Mises criterion) provides the 
+most reliable means of estimating equivalent stress under combined loading. The general three-
+dimensional form is given below. 
+𝜎𝑒𝑞= √(𝜎𝑥−𝜎𝑦)2 + (𝜎𝑦−𝜎𝑧)2 + (𝜎𝑧−𝜎𝑥)2 + 6(𝜏𝑥𝑦
+2 + 𝜏𝑦𝑧
+2 + 𝜏𝑧𝑥
+2 )
+2
+ 
+In a two-dimensional stress state, relevant for many shaft loading cases, the expression can simplifies 
+as below. (Stresses of the z direction is 0.) 
+𝜎𝑒𝑞= √(𝜎𝑥−𝜎𝑦)2 + (𝜎𝑦−0)2 + (0 −𝜎𝑥)2 + 6(𝜏𝑥𝑦
+2 + 0 + 0)
+2
+ 
+𝜎𝑒𝑞= √𝜎𝑥2 −2𝜎𝑥𝜎𝑦+ 𝜎𝑦2 + 𝜎𝑦2 + 𝜎𝑥2 + 6𝜏𝑥𝑦
+2
+2
+ 
+𝜎𝑒𝑞= √𝜎𝑥2 −𝜎𝑥𝜎𝑦+ 𝜎𝑦2 + 3𝜏𝑥𝑦
+2  
+For the typical marine shaft condition involving axial load, torsional shear, and unidirectional 
+transverse bending, a further simplification is obtained. At the outer surface point where bending is 
+maximum, for a typical shaft section (ignoring axial thrust and pressure for now). 
+• 
+Let the axial direction be x. 
+• 
+Bending creates normal stress along x: 𝜎𝑥= 𝜎𝑏. 
+• 
+There’s no membrane normal stress in the transverse direction at that point, so 𝜎𝑦≈0. 
+• 
+Torsion creates a shear on that surface element, which we can take as 𝜏𝑥𝑦= 𝜏𝑡. 
+Figure 41 - Load applied on the shaft 
+
+--- Page 90 ---
+89 
+ 
+Substitute into the plane-stress expression. 
+𝜎𝑒𝑞= √𝜎𝑏
+2 −𝜎𝑏. 0 + 02 + 3𝜏𝑡
+2 
+𝜎𝑒𝑞= √𝜎𝑏
+2 + 3𝜏𝑡
+2 
+If this shaft also has axial thrust producing a uniform axial stress 𝜎𝑎, just replace 𝜎𝑏 with 𝜎𝑎+ 𝜎𝑏. 
+𝜎𝑒𝑞= √(𝜎𝑎+ 𝜎𝑏)2 + 3𝜏𝑡
+2 
+This model provides an efficient means of estimating the maximum equivalent stress under static 
+loading. However, real operating conditions involve additional dynamic effects and irregular loadings, 
+which are addressed in Section 06.1.4.3. 
+ 
+06.1.4.2.2 Breakdown of the IACS M68.4 formula  
+The International Association of Classification Societies (IACS) M68.4 formula is widely used by 
+manufacturers, such as Berg Propulsion, to determine the minimum required shaft diameter for marine 
+propulsion systems. The formula is semi-empirical in nature and incorporates load, inertia, and 
+material parameters into a single expression. 
+06.1.4.2.2.1 Hollow shaft 
+General torsion equation 
+𝑇
+𝐽= 𝜏
+𝑟= 𝐺ѳ
+𝐿 
+T = Torque or Twisting                                                                   G = Modulus of rigidity 
+J = Polar moment of inertia                                                            Ѳ = Angle of twist 
+τ = Shear stress                                                                               L = Length of the shaft 
+r = Radius of shaft 
+For a hollow circular shaft with outer diameter D and inner diameter d; 
+𝜏𝑚𝑎𝑥= 𝑇𝑟
+𝐽=
+𝑇(𝐷
+2)
+( п
+32) (𝐷4 −𝑑4)
+=
+16𝑇𝐷
+п(𝐷4 −𝑑4) 
+Set 𝜏𝑚𝑎𝑥 = 𝜏𝑎𝑙𝑙𝑜𝑤 and solve for D; 
+𝐷3 =
+16𝑇
+п𝜏𝑎𝑙𝑙𝑜𝑤
+.
+1
+1 −(𝑑
+𝐷)
+4 
+𝐷= [ 16𝑇
+п𝜏𝑎𝑙𝑙𝑜𝑤
+.
+1
+1 −(𝑑
+𝐷)
+4]
+1
+3
+ 
+Using the power speed relation 𝑇=
+𝑃
+2п𝑛 
+
+--- Page 91 ---
+90 
+ 
+𝐷=
+[
+ 
+ 
+ 
+ 
+8
+п2 .
+𝑃
+𝑛𝜏𝑎𝑙𝑙𝑜𝑤
+.
+1
+(1 −(𝑑
+𝐷)
+4
+)]
+ 
+ 
+ 
+ 
+1
+3
+ 
+ 
+Marine propeller shafts are governed by fatigue endurance, not simple static yield. 
+Rules therefore replace a constant 𝜏𝑎𝑙𝑙𝑜𝑤 with an allowable that itself depends on diameter/material 
+and includes service factors (keyways, corrosion, misalignment, surface finish). A common way is; 
+𝜏𝑎𝑙𝑙𝑜𝑤= 𝐶1(𝜎𝐵+ 160)
+𝐶2𝐷
+ 
+ 
+𝐶1(𝜎𝐵+ 160) => Material endurance proxy 
+𝐶2𝐷 => Size/surface/gradient effects 
+• The (σB+160) form is a long-standing rule-of-thumb correlation used in shaft rules to tie 
+endurance to UTS (units MPa). 
+• The division by D lumps size/gradient/surface effects (larger shafts have lower endurance in 
+shear) into a simple inverse-diameter trend consistent with fatigue data compilations. 
+𝐷=
+[
+ 
+ 
+ 
+ 
+8
+п2 . 𝑃
+𝑛.
+1
+(1 −(𝑑
+𝐷)
+4
+)
+.
+1
+𝜏𝑎𝑙𝑙𝑜𝑤
+]
+ 
+ 
+ 
+ 
+1
+3
+ 
+𝐷=
+[
+ 
+ 
+ 
+ 
+8
+п2 . 𝑃
+𝑛.
+1
+(1 −(𝑑
+𝐷)
+4
+)
+.
+𝐶2𝐷
+𝐶1(𝜎𝐵+ 160)
+]
+ 
+ 
+ 
+ 
+1
+3
+ 
+𝐷= √
+8𝐶2
+п2𝐶1
+. 𝑃
+𝑛.
+1
+(1 −(𝑑
+𝐷)
+4
+)
+.
+1
+(𝜎𝐵+ 160) 
+8𝐶2
+п2𝐶1 => Constant 
+Comparing (5) with the rule form (IACS): 
+• 
+The bracketed constant 
+8𝐶2
+п2𝐶1 becomes the numerical factor “560” once units are fixed (power 
+in kW, speed in rpm, stress in MPa, diameter in mm) and the rule’s calibration is applied. 
+• 
+The F and k3 multipliers collect installation/classification modifiers (service factor, 
+keyway/coupling condition, surface finish, corrosion allowance, alignment tolerance, etc.) and 
+also tidy up unit conversions. 
+• 
+The hollow-shaft factor (1 −(
+𝑑
+𝐷)
+4
+) is exactly the geometric term from torsion theory. 
+
+--- Page 92 ---
+91 
+ 
+Thus, IACS M68.4 minimum shaft diameter formula is below. 
+𝐷𝑚𝑖𝑛= 𝐹. 𝑘3. √
+𝑃
+𝑛.
+1
+(1 −(𝑑
+𝐷)
+4
+)
+.
+560
+(𝜎𝐵+ 160) 
+Where; 
+𝐷𝑚𝑖𝑛 = Minimum required diameter in mm 
+P = Rated power in kW transmitted through the shaft (losses in gearboxes and bearings are to be 
+disregarded) 
+n = speed in revolutions per minute of shaft at rated power 
+D = Outside diameter in mm of shaft. If the bore of the shaft is ≤ 0.4D, the expression (1 −(
+𝑑
+𝐷)
+4
+) may 
+be taken as 1.0 
+d = Actual diameter in mm of shaft bore 
+𝜎𝐵 = Specified minimum tensile strength in N/mm2 of the shaft material 
+ 
+Solving for the outer diameter D produces an expression that closely resembles the IACS formula, 
+with the key difference being the use of ultimate tensile strength instead of yield strength. 
+This approach reflects the fact that propulsion shafts are designed primarily against fatigue rather than 
+static yielding. Since endurance limit is more closely related to the ultimate tensile strength, the 
+formula’s material term appropriately accounts for long-term cyclic loading. Further fatigue-specific 
+evaluation of the IACS approach is presented in Section 06.1.4.4. 
+ 
+ 
+06.1.4.2.2.2 Solid shaft 
+If the shaft being designed is a solid shaft, its dimensions can be calculated as follows. There are three 
+loading cases that can be encountered. The following calculation was performed for each of those 
+cases. 
+1. Pure torsion  
+2. Bending + torsion (no axial)  
+3. Bending + torsion + axial 
+General Bending Equation 
+𝑀
+𝐼= 𝜎
+𝑦= 𝐸
+𝑅 
+M – Bending Movement                                                              y – Distance to neutral axis 
+I – Second Movement of area                                                     E – Young’s modulus 
+σ – Bending stress                                                                       R – Radius of curvature 
+
+--- Page 93 ---
+92 
+ 
+1. Pure Torsion 
+From general torsion equation, 
+𝜏𝑚𝑎𝑥= 𝑇. 𝑟
+𝐽 
+𝐽=
+п𝑑4
+32   → polar moment of inertia of a solid circle 
+𝜏𝑚𝑎𝑥=
+𝑇. (𝑑
+2)
+(п𝑑4
+32 )
+= 16𝑇
+п𝑑3 
+Impose 𝜏max ≤𝜏allowand solve for 𝑑; 
+16𝑇
+п𝑑3 ≤𝜏𝑎𝑙𝑙𝑜𝑤 
+(
+16𝑇
+п. 𝜏𝑎𝑙𝑙𝑜𝑤
+)
+1
+3
+≤𝑑 
+𝑑𝑚𝑖𝑛= ( 16𝑇
+п. 𝜏𝑚𝑎𝑥
+)
+1
+3
+ 
+ 
+2. Bending + torsion (no axial) 
+Section modulus in bending → 𝑊𝑏=
+𝜋𝑑3
+32  
+At the surface; 
+𝜎𝑏=
+𝑀
+𝑊𝑏=
+32𝑀
+п𝑑3   and 𝜏𝑡=
+16𝑇
+п𝑑3 
+Von Mises equivalent 
+𝜎𝑒𝑞= √𝜎𝑏
+2 + 3. 𝜏𝑡
+2  
+𝜎𝑒𝑞= √1024𝑀2
+п2. 𝑑6
++ 768𝑇2
+п2. 𝑑6  
+Set 𝜎eq ≤𝜎allow and solve; 
+√1024𝑀2
+п2. 𝑑6
++ 768𝑇2
+п2. 𝑑6 ≤𝜎allow 
+1
+п𝑑3 . √1024𝑀2 + 768𝑇2 ≤𝜎allow 
+(√1024𝑀2 + 768𝑇2
+п. 𝜎allow
+)
+1
+3
+≤𝑑 
+ 
+
+--- Page 94 ---
+93 
+ 
+𝑑𝑚𝑖𝑛= (√1024𝑀2 + 768𝑇2
+п. 𝜎allow
+)
+1
+3
+ 
+ 
+3. Bending + torsion + axial 
+Add axial stress 𝜎𝑎=
+4𝐹
+𝜋𝑑2 (uniform over the section). 
+Surface normal stress becomes 𝜎= 𝜎𝑎+ 𝜎𝑏. Von Mises → 
+𝜎𝑒𝑞= √(𝜎𝑎+ 𝜎𝑏)2 + 3𝜏𝑡
+2 
+𝜎𝑒𝑞= √16𝐹2
+п2. 𝑑4 + 1024𝑀2
+п2. 𝑑6
++ 256𝑀. 𝐹
+п2. 𝑑5
++ 768𝑇2
+п2. 𝑑6  
+Set 𝜎eq ≤𝜎allow and solve; 
+√16𝐹2
+п2. 𝑑4 + 1024𝑀2
+п2. 𝑑6
++ 256𝑀. 𝐹
+п2. 𝑑5
++ 768𝑇2
+п2. 𝑑6 ≤𝜎allow 
+It is quite difficult to calculate d, and d can be found using an iteration method or some other method. 
+ 
+06.1.4.2.3 Stress concentration  
+polar moment of inertia for a solid shaft 
+𝐽= п𝑑4
+32  
+d = Diameter of the shaft 
+polar moment of inertia for a hollow shaft 
+𝐽= п(𝑑𝑜
+4 −𝑑𝑖
+4)
+32
+ 
+do = Outer diameter of the shaft 
+di = Inner diameter of the shaft 
+• 
+In torsion or bending, maximum stress occurs at the outer surface, and inner material near the 
+center carries very little stress. 
+• 
+In a solid shaft, that central region adds weight but contributes almost nothing to resisting 
+torque or bending. 
+By removing this low-stress material → a hollow shaft maintains nearly the same strength and 
+stiffness while reducing weight and material usage. 
+ 
+For equal outer diameter and material, 
+the torsional strength (maximum torque capacity) is proportional to 𝐽. 
+
+--- Page 100 ---
+99 
+ 
+e) Torsional stress → von Mises equivalence for fatigue and yield 
+• 
+For pure torsion, the von Mises equivalent is 𝜎eq = √3 𝜏(used later to compare against axial 
+fatigue and yield limits in the material data). 
+ 
+f) Damping (for completeness) 
+ 
+When you do a full TVC, propeller hydrodynamic damping is commonly represented by Archer/Frahm 
+numbers or Schwaneke’s formula; typical Archer numbers 25–35 and Frahm 2.9–3.7 are widely used 
+in TVC tools (e.g., DNV Nauticus). Schwaneke’s expression for propeller damping 𝐶is also given 
+there. [69] 
+ 
+ 
+06.1.4.3.3 Axial vibration  
+ 
+Governing PDE and wave speed 
+Consider the axial displacement 𝑢(𝑥, 𝑡)of a uniform shaft (area 𝐴, Young’s modulus 𝐸, density 𝜌). 
+Force equilibrium on a slice gives 
+∂
+∂𝑥 (𝐸𝐴  ∂𝑥𝑢) = 𝜌𝐴  ∂𝑡𝑡𝑢⟹∂𝑡𝑡𝑢= 𝑐2  ∂𝑥𝑥𝑢, 
+with longitudinal wave speed 𝑐= √
+𝐸
+𝜌 (independent of cross section) 
+Separation of variables 𝑢= 𝜙(𝑥)𝑒𝑖𝜔𝑡 yields 𝜙′′ + 𝑘2𝜙= 0, 𝑘=
+𝜔
+𝑐. 
+General solution → 𝜙(𝑥) = 𝐶1 sin(𝑘𝑥) + 𝐶2 cos(𝑘𝑥). 
+Boundy conditions; 
+Fixed (thrust bearing) end at x = 0: 𝑢(0, 𝑡) = 0 → 𝐶2 = 0 
+Free end (no axial force) at 𝑥= 𝐿:  𝐸𝐴𝑢′(𝐿, 𝑡) = 0 →cos(𝑘𝐿) = 0 
+These give the fixed free eigenvalues: 𝑘𝑛𝐿= (2𝑛+ 1)
+п
+2 and the natural frequencies. 
+𝜔𝑛=
+(2𝑛+1)п
+2𝐿
+𝑐     and      𝑓𝑛=
+𝜔𝑛
+2п =
+(2𝑛+1)
+4𝐿
+𝑐 
+Lowest (first) mode: 𝑓1 =
+𝐶
+4𝐿 
+If both ends are axially fixed (two rigid axial restraints), get 𝑘𝑛𝐿= 𝑛п and 
+𝑓𝑛
+(𝑓𝑖𝑥𝑒𝑑−𝑓𝑖𝑥𝑒𝑑) = 𝑛
+2𝐿𝐶 
+which are higher (stiffer boundary → higher frequency). 
+ 
+ 
+
+--- Page 101 ---
+100 
+ 
+Thrust-bearing stiffness model  
+ 
+If the outboard end is connected to an axial spring 𝐾𝑠(prop/thrust-bearing compliance), the boundary 
+becomes 𝐸𝐴 𝑢′(𝐿) = −𝐾𝑠𝑢(𝐿). With 𝑢= 𝐶1sin 𝑘𝑥this gives the characteristic equation. 
+𝐸𝐴𝑘cos(𝑘𝐿) + 𝐾𝑠sin(𝑘𝐿) = 0 →tan(𝑘𝐿) = −𝐸𝐴𝑘
+𝐾𝑠
+ 
+which smoothly transitions between fixed–free (𝐾𝑠→0 ⇒cos 𝑘𝐿= 0) and fixed–fixed (𝐾𝑠→∞⇒
+sin 𝑘𝐿= 0). That’s handy if later you want to include measured thrust-bearing stiffness. 
+The Blade Passing Frequency (BPF)  
+The Blade Passing Frequency (BPF) is the frequency at which the propeller blades pass a fixed point 
+(like the hull, rudder, or shaft bearings). 
+It represents how often a pressure pulse or thrust fluctuation occurs due to the blades moving through 
+water. 
+Mathematically: 
+𝑓BPF = 𝑁𝑏× 𝑓shaft 
+where: 
+• 
+𝑁𝑏= number of propeller blades 
+• 
+𝑓shaft= shaft rotation frequency (revolutions per second) 
+ 
+Axial vibration seldom matters in ships 
+Class guidance used in your source explicitly says axial stresses in marine shafting are negligible 
+compared with torsional and bending stresses; fatigue checks likewise combine torsional and rotating 
+bending, axial stresses disregarded. 
+Also → the thrust bearing fixes the axial movement of the line its job is to take propeller thrust and 
+arrest axial oscillation.[70] 
+ 
+06.1.4.3.4 Fatigue  
+We assess high-cycle fatigue under combined rotating bending and torsional vibration. The stress state 
+at the surface is decomposed into (i) a fully reversed bending normal stress and (ii) a mean plus 
+alternating torsional shear due to torque pulsations.[71] 
+Geometry (hollow circular) 
+Polar moment 𝐽=
+𝜋
+32 (𝐷𝑜
+4 −𝐷𝑖
+4), second moment 𝐼=
+𝜋
+64 (𝐷𝑜
+4 −𝐷𝑖
+4), section modulus 𝑍= 𝐼/(𝐷𝑜/2) =
+𝐽/𝐷𝑜. 
+Bending (fully reversed at the surface) 
+𝜎𝑏,𝑎= 𝑀
+𝑍=
+32𝑀𝐷𝑜
+п(𝐷𝑜4 −𝐷𝑖
+4) 
+ 
+ 
+
+--- Page 110 ---
+109 
+ 
+B) Spring–mass lower-bound (even more conservative) 
+Treat the shaft as an axial spring 𝑘𝑎𝑥= 𝐸𝐴/𝐿carrying the shaft mass 𝑚= 𝜌𝐴𝐿(concentrated): 
+𝑘𝑎𝑥= 𝐸𝐴
+𝐿, 𝑚= 𝜌𝐴𝐿  
+𝜔= √𝑘𝑎𝑥
+𝑚= √𝐸
+𝜌× 1
+𝐿= 𝐶
+𝐿 
+So 𝑓1 =
+𝑐
+2𝜋𝐿. 
+• 
+𝐿= 1.2 m ⇒𝑓1 ≈4211.414 Hz
+‾
+. 
+• 
+𝐿= 6.56 m ⇒𝑓1 ≈770 Hz
+‾
+. 
+Even this very conservative model keeps 𝑓1far above all axial excitations. 
+C) Axial stiffness and static stress context 
+𝐴= п
+4 (𝐷𝑜
+2 −𝐷𝑖
+2) = 9.444 × 10−3 𝑚2 
+With 𝐿= 1.2 m: 𝑘𝑎𝑥=
+𝐸𝐴
+𝐿≈
+(200×109)×(9.444 ×10−3)
+1.2
+= 1.574 × 109𝑁/𝑚 
+Meaning → a 40 kN thrust fluctuation would move the line only 𝐹/𝑘𝑎𝑥≈0.02541 mm, illustrating 
+why axial vibration amplitudes are tiny. 
+ 
+Finally 
+with Duplex-2205 and Outer Diameter/Inner Diameter = 125/60 mm, the shaft is vibration-safe 
+provided us respect these design conditions: 
+1. Bearing span 𝐿≤6.56m so lateral criticals clear the ±20% MCR band. (At typical 𝐿∼
+1.2–1.5m We have very large margins.) 
+2. Torsional allowances include a flexible coupling (so 𝐾𝐴≈1.3normal, 1.4peak). Stresses are 
+far below Duplex-2205 fatigue and yield limits.  
+3. Axial can be neglected for fatigue and resonance risk in this configuration (modes ≫ 
+excitations; thrust bearing restrains motion). 
+ 
+06.1.5.6 Fatigue calculations 
+𝐽= п
+32 (𝐷𝑜
+4 −𝐷𝑖
+4) = 2.2696 × 10−5 𝑚4 
+𝑇𝑜= 30
+п × 300
+225 = 12.73 𝑘𝑁𝑚 
+Bending movement → 𝑀= 0.4 × 𝑇𝑜= 5.06 𝑘𝑁𝑚 
+Torsional application factor (normal): 𝐾𝐴= 1.3. 
+ 
+
+--- Page 111 ---
+110 
+ 
+Stresses 
+𝜎𝑏,𝑎= 𝑀
+𝑍=
+32𝑀𝐷𝑜
+п(𝐷𝑜4 −𝐷𝑖
+4) = 27.868 𝑀𝑃𝑎 
+𝜏𝑚= 𝑇𝑜. 𝑐
+𝐽
+= 35.0557 𝑀𝑃𝑎 
+𝜏𝑎= ∆𝑇. 𝑐
+𝐽
+= (𝐾𝐴−1)𝜏𝑚= 10.51671 𝑀𝑃𝑎 
+𝜎𝑎,𝑒𝑞= √𝜎𝑏,𝑎2 + 3𝜏𝑎2 = 33.293 𝑀𝑃𝑎 
+𝜎𝑚,𝑒𝑞= √3. 𝜏𝑚= 60.7183 𝑀𝑃𝑎 
+ 
+Goodman check (Duplex 2205) 
+𝜎𝑎,𝑒𝑞
+𝜎𝑒
++ 𝜎𝑚,𝑒𝑞
+𝜎𝑈𝑇𝑆
+= 33.293
+262
++ 60.7183
+640
+= 0.2219 < 1 →𝑷𝑨𝑺𝑺 
+Soderberg (with 𝜎𝑦= 460MPa) gives 
+𝜎𝑎,𝑒𝑞
+𝜎𝑒
++ 𝜎𝑚,𝑒𝑞
+𝜎𝑈𝑇𝑆
+= 33.293
+262
++ 60.7183
+460
+= 0.2591 < 1 →𝑷𝑨𝑺𝑺 
+Keyway/ spline sensitivity – If a local 𝐾𝑓= 1.6 is applied at a keyed section, 
+𝜎𝑎,eq →1.6 × 33.293 = 53.2688MPa, 𝜎𝑚,eq →1.6 × 60.7183 = 97.1493 MPa → Goodman 
+𝜎𝑎,𝑒𝑞
+𝜎𝑒
++ 𝜎𝑚,𝑒𝑞
+𝜎𝑈𝑇𝑆
+= 53.2688
+262
++ 97.1493
+640
+= 0.355 < 1 →𝑷𝑨𝑺𝑺 
+𝜎𝑎,𝑒𝑞
+𝜎𝑒
++ 𝜎𝑚,𝑒𝑞
+𝜎𝑈𝑇𝑆
+= 53.2688
+262
++ 97.1493
+460
+= 0.4145 < 1 →𝑷𝑨𝑺𝑺 
+Corrosion-fatigue margin – Using 𝜎𝑒/1.6 = 163MPa to represent seawater degradation/design 
+factor, the same Goodman becomes 
+𝜎𝑎,𝑒𝑞
+𝜎𝑒
++ 𝜎𝑚,𝑒𝑞
+𝜎𝑈𝑇𝑆
+= 33.293
+163
++ 60.7183
+460
+= 0.3362 < 1 →𝑷𝑨𝑺𝑺 
+with the 𝐾𝑓= 1.6illustration it is 
+𝜎𝑎,𝑒𝑞
+𝜎𝑒
++ 𝜎𝑚,𝑒𝑞
+𝜎𝑈𝑇𝑆
+= 53.2688
+163
++ 97.1493
+460
+= 0.5379 < 1 →𝑺𝒕𝒊𝒍𝒍 𝑷𝑨𝑺𝑺 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- Page 117 ---
+116 
+ 
+Reason for Using Tensile Strength (𝜎𝐵) in the IACS Minimum Shaft Diameter Formula 
+Tensile strength is used in the IACS M68.4 minimum shaft diameter equation because it provides the 
+most reliable measure of a shaft material’s ability to withstand the combined effects of torsional shear, 
+bending fluctuations, and fatigue. In marine propulsion shafts, failure rarely occurs from static shear 
+alone; instead, it is driven by cyclic torsion, variable bending, stress concentrations, and corrosion-
+assisted crack initiation. The shear strength and fatigue endurance of steels are well known to correlate 
+closely with their minimum specified tensile strength, which is the most consistently certified property 
+supplied by manufacturers. By incorporating σᴮ, the IACS formula ensures that the calculated diameter 
+accounts not only for shear capacity but also for long-term fatigue performance and real-world 
+degradation effects. Thus, tensile strength functions as a practical and conservative parameter to 
+prevent shaft failure under marine operating conditions. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- Page 118 ---
+117 
+ 
+06.1.6 Results and discussion 
+06.1.6.1 Final Calculations results 
+ 
+Hollow part 
+Outer diameter = 125 mm (SAE J755 Standard) 
+Inner diameter = 60 mm 
+Taper angle = 16:1 (SAE J755 Standard) 
+ 
+Solid part 
+Large end diameter = 125 mm 
+Small end diameter = 106 mm (According to tapper) 
+ 
+Flange 
+No. of bolts = 6 
+Thickness of flange = 45 mm 
+Pitch circle diameter of bolts = 200 mm 
+Outside diameter of flange = 275 mm 
+ 
+Thread 
+This is 𝑀95 × 4 ISO Slandered thread. It is exactly thali with our calculation also.[86] 
+Major diameter = 95 mm 
+Miner diameter = 90 mm 
+Pitch diameter = 92 mm 
+Pitch = 4 mm 
+Table 18 - Calculated values of the thread vs. ISO standard values of the thread 
+ 
+Calculated Values 
+ISO Standard Values 
+Major diameter 
+95 
+94.940 – 94.465 
+Minor diameter 
+90.672 
+90.610 – 89.628 
+Pitch diameter 
+92.402 
+92.342 – 92.092 
+Pitch 
+4 
+4 
+Tolerance class 
+ 
+6g 
+Bolt 
+ 
+𝑀95 × 4 
+ 
+
+--- Page 119 ---
+118 
+ 
+Under dynamic loads 
+❖ Lateral vibration (whirling) → SAFE 
+❖ Torsional vibration →SAFE 
+❖ Axial vibration → SAFE / NEGLIGIBLE 
+❖ Fatigue → SAFE 
+ 
+06.1.6.2 Final design 
+This is a hollow shaft with a solid section with a taper at the end. It has 6 splines that connect the 
+propeller shaft to the propeller hub. 
+Total length of the shaft = 1.6 m 
+Tapered spline depth = 5 mm 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+120 cm 
+30 cm 
+Figure 53 - Design of the propeller shaft 
+Figure 54 - final design with thread 
+Figure 52 - Length of the propeller shaft 
+
+==============================
+FEA SIMULATION (Task 06 - Premakumara)
+==============================
+
+--- Page 120 ---
+119 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+06.1.6.3 Mount propeller into propeller shaft 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 58 - How the propeller connects to the shaft end. 
+Figure 55 - Final propeller shaft design without thread 
+Figure 57 - 2D Image of the final shaft design 
+Figure 56 - Thread of the shaft (3D image of the thread and 2D cross section image of the thread(Section A-A)) 
+
+--- Page 121 ---
+120 
+ 
+1. Tapered shaft – The tail end of the propeller shaft is machined into a conical taper. The hub of the 
+propeller has a matching tapered bore, which allows the propeller to be slid onto the shaft for a 
+snug, self-centering fit. 
+2. Key and keyway – A metal key is placed in a groove, or "keyway," on both the shaft and the 
+propeller hub. This key is responsible for transmitting the engine's torque to the propeller, turning it 
+in the water. 
+3. Spline – Both the shaft and hub have splines that follow the same conical taper angle. The teeth are 
+cut so their pitch diameter follows the taper. This provides better centering and torque 
+transmission. 
+4. Locking nut – Once the propeller is seated firmly on the taper and against the key, a large locking 
+nut is threaded onto the end of the shaft. This nut compresses the propeller onto the tapered shaft, 
+ensuring a secure and solid connection. 
+5. Cotter pin – The locking nut is often secured further by a cotter pin or other locking device that 
+passes through the shaft, preventing the nut from loosening due to vibration. 
+6. Hydraulic systems – For very large ships, hydraulic systems involving a "Pilgrim nut" are used. 
+Hydraulic pressure is used to force the propeller up the tapered shaft, creating an extremely tight, 
+keyless friction fit that is highly reliable 
+ 
+ 
+ 
+06.2 FEA simulation of loading and corrosion fatigue effects 
+ 
+06.2.1 Simulation Methodology and Strategic Approach 
+The finite element analysis (FEA) was conducted to evaluate the structural integrity of the propulsion 
+shaft under realistic marine operating conditions. A primary objective of this simulation was to predict 
+the combined effects of uniform corrosion and localized pitting on the fatigue life of the Duplex 
+Stainless Steel 2205 shaft. However, the simultaneous simulation of macroscopic shaft geometry 
+(approx. 1.6 m in length) and microscopic pitting defects (< 1.0 mm in depth) presents a significant 
+computational challenge known as “multi-scale mesh dependency.” 
+Directly meshing a microscopic pit within the full-scale shaft assembly requires an excessive element 
+density (exceeding 107 degrees of freedom) to capture the stress singularity at the pit root accurately. 
+This approach was determined to be computationally inefficient and prone to mesh distortion errors 
+given the available hardware resources. 
+To resolve this scale mismatch while ensuring high-fidelity results, a Decoupled Analysis Strategy 
+was adopted. This methodology separates the analysis into two distinct phases: 
+1. Macro-Level Structural Analysis (Global FEA): A full-scale 3D finite element model of the 
+shaft assembly was developed in Abaqus/CAE 2024 to simulate the global stiffness, complex 
+contact mechanics at the spline interface, and the stress distribution under nominal operating loads. 
+The primary output of this phase was the identification of the exact “Hotspot Node”—the location 
+of maximum Von Mises stress in the healthy (Year 0) geometry—and the quantification of stress 
+increases due to uniform corrosion thinning (Year 10 Macro state). 
+
+--- Page 122 ---
+121 
+ 
+2. Micro-Level Defect Assessment (Analytical Hybrid): Instead of explicitly modeling the pit 
+geometry in the FEA mesh, which induces numerical singularities, the localized effect of pitting 
+was evaluated analytically. Theoretical Stress Concentration Factors (𝐾𝑡), derived from fracture 
+mechanics principles for hemispherical voids in tension/bending fields, were applied to the peak 
+stress values obtained from the global FEA simulation. 
+This hybrid approach allows for the precise capture of the global load path (Torque, Thrust, and 
+Gravity) via simulation, while mathematically quantifying the catastrophic impact of micro-defects 
+without compromising solution convergence or computational feasibility. 
+ 
+06.2.2 Geometric Modelling and Assembly Preparation 
+To facilitate the finite element analysis, the manufacturing CAD geometry (detailed in Section 07) 
+required specific modifications to optimize contact convergence and boundary condition application. A 
+parametric “Top-Down” assembly approach was utilized within Siemens Solid Edge to generate the 
+analysis-specific geometry. 
+ 
+06.2.2.1 The “Dummy Hub” Technique for Contact Optimization  
+Simulating the torque transmission at the spline interface requires a realistic contact model. However, 
+introducing a physical clearance gap (typical in manufacturing) induces rigid body motion at the start 
+of a static simulation, leading to convergence singularities. To resolve this, a “Dummy Hub” was 
+modeled to represent the propeller boss stiffness. 
+A Boolean Subtraction method (Inter-part Copy) was employed to generate the hub geometry. The 
+shaft spline profile was used as the “Tool Body” to subtract material from a solid ring “Target Body.” 
+This operation ensured a perfect Line-to-Line (Zero Clearance) fit between the master and slave 
+surfaces. This geometric conformity is critical for the Abaqus contact algorithm to establish immediate 
+nodal contact without artificial stabilization. 
+ 
+Figure 59 : Result Of Boolean Subtract operation with zero-clearance spline interface 
+ 
+06.2.2.2 Virtual Bearing Definition via Surface Splitting  
+Modeling physical bearing components (rollers, races, and cages) introduces unnecessary 
+computational cost for a shaft fatigue analysis. Instead, a Split Surface technique was used to define 
+“Virtual Bearing” locations directly on the shaft geometry. 
+
+--- Page 123 ---
+122 
+ 
+Using the “Center-to-Center” parametric dimensioning method established in the mechanical design 
+phase, the shaft’s outer cylindrical face was partitioned at the exact start and end coordinates of 
+Bearing 1 and Bearing 2. These split surfaces provide discrete geometric regions for the application of 
+displacement boundary conditions (𝑈1, 𝑈2 = 0) in the FEA pre-processor, accurately representing the 
+bearing stiffness without increasing the element count. 
+ 
+Figure 60 : specific “Split Surfaces” created for Bearing 1 and Bearing 2 locations (Highlighted area) 
+ 
+06.2.3 Finite Element Model Setup (Pre-processing) 
+The pre-processing phase involved defining the material behavior, contact physics, and boundary 
+conditions required to simulate the operational environment of the propulsion shaft. All setup tasks 
+were performed within the Abaqus/CAE 2024 environment. 
+ 
+06.2.3.1 Material Definition and Inertial Properties  
+The shaft and dummy hub were assigned the material properties of Duplex Stainless Steel 2205. 
+Given that the analysis focuses on High Cycle Fatigue (HCF) where the component operates well 
+within the elastic limit, a Linear Elastic material model was utilized. 
+• Young’s Modulus (𝐸): 200 GPa 
+• Poisson’s Ratio (𝜈): 0.3 
+• Density (𝜌): 7.8 × 10−9 ton/mm3 (7800 kg/m3)  
+The definition of density was critical to enable the accurate calculation of self-weight deflection 
+(sagging) under gravity loads. 
+ 
+06.2.3.2 Interaction Physics: The Tie Constraint  
+To simulate the rigid interference fit between the propeller hub and the shaft splines, a Tie Constraint 
+was formulated. A standard “Surface-to-Surface” contact was deemed unsuitable due to the potential 
+for rigid body motion singularities during the initial analysis steps. 
+Instead, the Hub Inner Splines (Slave) were kinematically tied to the Shaft Splines (Master). A critical 
+modification was applied to the Position Tolerance, which was manually set to 0.01 mm rather than 
+using the computed default. This setting ensured a robust mathematical bond between the mating 
+surfaces, preventing node distortion while guaranteeing zero relative motion at the interface. 
+ 
+06.2.3.3 Kinematic Couplings and Reference Points  
+To distribute loads realistically without inducing artificial stress concentrations at load application 
+points, the Reference Point (RP) Method was employed. Kinematic Couplings were created to link 
+abstract control points to the geometric surfaces: 
+
+--- Page 124 ---
+123 
+ 
+3. Hub RP: Located at the geometric center of the hub, coupled to the outer cylindrical surface. Used 
+for Thrust application. 
+4. Flange RP: Located at the flange center, coupled to the inner surfaces of the six bolt holes. Used 
+for Torque transmission. 
+5. Bearing RPs: Located at the shaft axis, coupled to the specific “Split Surfaces” defined in the 
+geometry phase. 
+ 
+06.2.3.4 Boundary Conditions (BCs)  
+Boundary conditions were applied directly to the Reference Points to simulate the constraints imposed 
+by the ship’s hull and bearings. 
+• Hub Constraint: Rotation about the X-axis (𝑈𝑅1) was fixed to provide a reaction against the 
+applied torque. Axial translation (𝑈1) was left FREE to allow the transmission of thrust forces. 
+• Bearing 1 (Thrust Bearing): Constrained in Radial (𝑈2, 𝑈3) and Axial (𝑈1) directions. 
+Rotations (𝑈𝑅1, 𝑈𝑅2, 𝑈𝑅3) were left FREE to allow the shaft to bend naturally (Simply 
+Supported behavior), preventing artificial stiffening. 
+• Bearing 2 (Support Bearing): Constrained in Radial (𝑈2, 𝑈3) directions only. Axial 
+translation (𝑈1) was left FREE to accommodate potential thermal expansion or floating 
+tolerances. 
+ 
+06.2.3.5 Load Case Definitions  
+Four distinct load cases were superimposed to represent the worst-case operating scenario: 
+1. Gravity: Applied as a body force of −9810 mm/s2 in the Y-direction. The load was applied to the 
+Shaft Body Only, excluding the dummy hub, to prevent inaccurate mass loading from the 
+simplified hub geometry. 
+2. Torque: A moment of 1.264 × 107 Nmm applied to the Flange RP about the X-axis. 
+3. Thrust: A concentrated force of 34,900 N applied to the Hub RP, pushing axially towards the 
+engine. 
+4. Nut Pre-load (Critical): To simulate the tightening of the propeller retaining nut, a Pressure 
+Load of −337.5 MPa was applied to the threaded end face of the shaft. The negative magnitude 
+indicates Tension, physically simulating the shaft being pulled outward against the hub during 
+tightening. 
+
+--- Page 125 ---
+124 
+ 
+ 
+Figure 61: The load vectors (Torque, Thrust, Gravity, and Preload) applied to the model 
+06.2.4 Mesh Sensitivity Analysis and Computational Optimization 
+Given the large aspect ratio of the propulsion shaft (1.6 m length vs. 5 mm fillet radii), a uniform mesh 
+density was determined to be computationally inefficient. A uniform fine mesh sufficient to capture the 
+stress concentration at the spline fillets would result in an excessive element count, exceeding 
+available computational resources (RAM/CPU). Therefore, a mesh sensitivity analysis was conducted 
+to establish an optimized discretization strategy that balances geometric accuracy with solution 
+feasibility. 
+ 
+06.2.4.1 Element Type Selection  
+The geometry features complex curvature at the spline teeth and transition fillets which are prone to 
+shear locking if modeled with first-order elements. Consequently, C3D10 (10-node Quadratic 
+Tetrahedral) elements were selected for the entire assembly. These second-order elements provide 
+superior convergence for curved geometries and stress gradients compared to linear tetrahedra (C3D4), 
+ensuring accurate capture of the bending and torsional stress fields. 
+ 
+06.2.4.2 Mesh Sensitivity Study  
+An iterative convergence study was performed to determine the required element density at critical 
+stress concentration regions: 
+• Iteration 1 (Uniform Coarse): A global seed size of 25 mm was applied. This resulted in 
+significant element distortion at the spline-to-shaft transition and failed to capture the curvature 
+of the 5 mm fillets, rendering stress results unreliable. 
+     
+ 
+Figure 62: A global seed size of 25 mm separated parts 
+ 
+
+--- Page 126 ---
+125 
+ 
+ 
+Figure 63: A global seed size of 25 mm of completed model 
+• Iteration 2 (Local Refinement): The global size was maintained at 25 mm with local 
+reductions to 12 mm at the fillets. While element quality improved, the stress gradient at the 
+fillet root remained mesh-dependent, indicating insufficient density to capture the peak stress 
+singularity. 
+ 
+  
+Figure 64: A global seed size of 25,12 mm strategy of separated parts 
+• Iteration 3 (Final Optimized Strategy): A multi-zone partitioning approach was adopted to 
+isolate critical regions for hyper-fine meshing while coarsening non-critical sections. 
+ 
+
+--- Page 127 ---
+126 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 65: Final optimize area 
+ 
+ 
+ 
+ 
+ 
+ 
+06.2.4.3 The “7-Zone” Partitioning Strategy  
+To implement the findings of the sensitivity analysis, the shaft geometry was partitioned into seven 
+distinct zones using datum planes (as defined in the manufacturing design). A variable seeding plan 
+was applied to creating a smooth transition from coarse to fine mesh: 
+• Zone 2 (Critical Hotspot - Spline/Taper): A global size of 3.0 mm was applied to the spline 
+region. Crucially, 1.0 mm Local Seeds were applied to the external spline fillet and internal 
+transition fillet edges. This ensures at least 5 elements across the radius of the curvature, 
+satisfying standard FEA convergence criteria for stress concentrations. 
+• Zone 1 (Thread): Meshed at 5.0 mm to capture the load application surface accurately. 
+• Zones 4 & 6 (Bearing Seats): Meshed at 5.0 mm to provide sufficient nodal density for the 
+application of rigid boundary conditions. 
+• Zone 3 (Buffer Zone): A transition mesh of 8.0 mm was utilized between the Hotspot (3 mm) 
+and the bearing seat to prevent abrupt changes in element size that could induce numerical 
+artifacts. 
+• Zones 5 & 7 (Non-Critical Gaps): The long, uniform sections of the shaft were meshed at 
+20.0 mm. Since these regions experience uniform nominal stress, this coarse mesh significantly 
+reduced the total degree of freedom count without compromising global stiffness accuracy. 
+Outcome: This optimized strategy resulted in a high-fidelity model comprising approximately 1.2 
+million elements. The selective refinement allowed for the precise capture of the peak Von Mises 
+
+--- Page 128 ---
+127 
+ 
+stress at the failure-critical fillet while maintaining a computationally feasible runtime of 
+approximately 8 hours on standard engineering workstations. 
+06.2.5 Baseline Simulation Results (Year 0 – Healthy State) 
+The baseline simulation was executed to characterize the stress state of the healthy shaft prior to 
+corrosive degradation. The results were first validated against fundamental static equilibrium 
+principles to ensure model accuracy before extracting critical stress values.  
+ 
+ 
+ 
+Figure 66: Stress distribution for uniform mesh size 25mm (not capture fillets) 
+ 
+ 
+ 
+ 
+ 
+Figure 67: Stress distribution for optimize mesh size 25,12mm (partial capture fillets) 
+ 
+ 
+ 
+
+--- Page 129 ---
+128 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 68: Stress distribution for final optimize mesh size 
+ 
+Further analysis use this model stress distribution. 
+ 
+ 
+06.2.5.1 Model Validation (Reaction Force Check)  
+To verify that the boundary conditions and contact interactions were transmitting loads correctly, the 
+reaction forces (RF) and reaction moments (RM) at the support points were summed and compared 
+against the applied loads. 
+• Thrust Verification: The sum of reaction forces along the X-axis (∑𝑅𝐹1) at the Bearing 1 
+constraint was extracted. The result was approximately 34,900 N, matching the applied Thrust 
+Load. This confirms that the Hub-to-Shaft Tie Constraint is successfully transmitting axial 
+forces through the shaft to the thrust bearing. 
+
+--- Page 130 ---
+129 
+ 
+ 
+Figure 69: Reaction Force output table from Abaqus Visualization (Due to coupling we cannot see color contours) 
+• Torque Verification: The sum of reaction moments about the X-axis (∑𝑅𝑀1) at the Hub fixed 
+boundary condition was approximately 1.264 × 107 Nmm. This matches the applied Torque, 
+confirming that the spline interface is transmitting rotational loads without numerical slippage. 
+ 
+Figure 70 : Moment output table from Abaqus Visualization (Due to coupling we cannot see color contours) 
+• Deformation Check: Visual inspection of the displacement plots confirmed expected physical 
+behaviors: the shaft exhibited downward deflection (“sag”) under gravity and torsional twist 
+along its length. 
+ 
+Figure 71: Displacement output table from Abaqus Visualization 
+
+--- Page 131 ---
+130 
+ 
+[Insert Image: Graph or Screenshot of the Reaction Force/Moment output table from Abaqus 
+Visualization] 
+ 
+06.2.5.2 Stress Distribution and Hotspot Identification  
+The Von Mises stress contour plot revealed a distinct stress concentration at the transition between the 
+spline and the main shaft body. 
+• Hotspot Location: The maximum stress was identified at the root of the external spline fillet. 
+This aligns with theoretical predictions for geometric stress concentrations in power 
+transmission shafts. 
+• Hotspot Magnitude: The peak Von Mises stress at this node was recorded at approximately 
+92.03 MPa (After removing distorted stresses) . 
+• Significance: This value represents the baseline operating stress of the healthy component. It is 
+significantly below the Yield Strength of Duplex 2205 (450 MPa), confirming that the shaft 
+operates within the elastic regime in its un-corroded state. 
+ 
+06.2.5.3 Verification against Analytical Calculations  
+The simulation results were compared with the manual analytical calculations performed in Section 
+06.1 to assess convergence. 
+• Analytical Prediction: Manual calculation estimated a maximum surface stress of 
+approximately 145.569 MPa. 
+• Simulation Result (Outer Surface): The FEA model reported a nominal surface stress of 
+approximately 105.2 MPa in the uniform shaft sections. 
+Discrepancy Analysis: A deviation exists between the analytical and numerical surface stress values. 
+This is attributed to the Mesh Optimization Strategy described in Section 06.2.4. To prioritize 
+computational resources for the critical fillet, the uniform shaft sections (Zones 5 & 7) were meshed 
+with coarse 20 mm elements. These larger elements inherently average the stress over a wider 
+geometric area, resulting in a slight underestimation of the peak surface stress compared to the 
+theoretical ideal. 
+However, since the primary objective of this analysis is to evaluate fatigue failure at the Spline Fillet 
+(Hotspot) which was meshed with high-fidelity 1.0 mm elements—this deviation in the non-critical 
+uniform sections is considered acceptable for the scope of this project. 
+ 
+06.2.6 Simulation of Corroded State (Year 10 – Degraded Geometry) 
+Following the baseline validation, the finite element model was modified to represent the “Worst 
+Case” geometric condition corresponding to the end of the 10-year design life. As established in the 
+environmental analysis (Section 03), the shaft is subject to a uniform corrosion rate of 0.2 mm/year. 
+ 
+ 
+ 
+
+--- Page 132 ---
+131 
+ 
+06.2.6.1 Geometric Degradation Modeling  
+To simulate the macro-mechanical effects of corrosion, the shaft geometry was modified in the 
+parametric CAD environment (Solid Edge) prior to re-importing into Abaqus. 
+• Global Thinning: The Outer Radius (OR) of the shaft was reduced by 2.0 mm 
+(0.2 mm/yr × 10 yrs). This resulted in a reduction of the nominal outer diameter from 125 mm 
+to 121 mm. 
+• Hub Re-tooling: A critical update was required for the dummy hub. Since the shaft diameter 
+decreased, the original Year 0 hub would present a loose fit, invalidating the “Tie Constraint” 
+assumption. To resolve this, a new hub geometry was generated using the Boolean Subtract 
+method with the corroded (121 mm) shaft as the tool body. This ensured that the Year 10 
+simulation maintained the perfect “Line-to-Line” fit required for numerical convergence. 
+ 
+06.2.6.2 Finite Element Setup for Corroded State  
+The Year 10 model utilized the exact same 7-Zone Mesh Strategy and Boundary Conditions as the 
+baseline simulation to ensure a direct comparative analysis. - Mesh Density: The element count 
+remained stable (~1.2 million), as no new geometric features (such as micro-pits) were explicitly 
+modeled in this phase. - Loads: The operating loads (Torque: 12.64 kNm, Thrust: 34.9 kN) remained 
+constant, simulating the requirement for the degraded shaft to transmit the same engine power. 
+ 
+06.2.6.3 Macro-Stress Results (Geometry Effect)  
+The simulation results for the Year 10 geometry indicated a global increase in Von Mises stress 
+attributed solely to the reduction in the cross-sectional area and the Polar Moment of Inertia (𝐽). 
+• Stress Distribution: The general stress pattern remained identical to the Year 0 baseline, 
+confirming that the load path through the splines remained stable. 
+ 
+ 
+ 
+ 
+Figure 72 : Stress distribution for Year 10 showing the slight color shift/intensity increase 
+
+--- Page 133 ---
+132 
+ 
+• Magnitude Change: The peak Von Mises stress at the hotspot node increased from the 
+baseline 92.03 MPa to approximately 114.2 MPa. 
+Interpretation: This 25% increase in stress represents the “Macro Effect” of uniform corrosion. 
+While this value remains well below the yield strength of Duplex 2205 (450 MPa), it establishes the 
+elevated “Nominal Stress” state upon which microscopic defects (pits) will act. This degraded stress 
+baseline serves as the input for the analytical fracture mechanics assessment in the final design phase. 
+ 
+06.2.7 Analytical Fatigue Assessment and Failure Prediction 
+The Finite Element Analysis (FEA) results in Section 06.2.6 provided the “Macro-Stress” state of the 
+corroded shaft, accounting for the global reduction in cross-sectional area due to uniform corrosion. 
+However, FEA alone cannot efficiently predict failure caused by microscopic pitting without 
+computationally prohibitive mesh densities. 
+Therefore, this final phase employs a Fracture Mechanics and S-N Approach to analytically 
+superimpose the effect of pitting corrosion onto the FEA results. This hybrid method calculates the 
+Effective Stress (𝜎𝑒𝑓𝑓) at the pit root and compares it against the degraded fatigue strength of Duplex 
+2205 in seawater to predict the remaining service life. 
+06.2.7.1 Inputs from Simulation & Operations  
+ 
+- Operating Conditions:  
+* Shaft Speed (𝑁): 225 RPM  
+* Design Life: 10 Years  
+* Duty Cycle: 50% (Conservative assumption for vessel operation).  
+ 
+ 
+- Simulation Outputs (Von Mises Stress):  
+* 𝜎Year0 (Healthy): 92.03 MPa (At Spline Fillet).  
+* 𝜎Year10 (Uniform Corrosion): 114.20 MPa (At Spline Fillet).  
+ 
+- Observation: The macro-geometric thinning (2mm reduction) caused a 24% increase in nominal 
+stress (𝜎Year10 vs 𝜎Year0). However, this value (114.2 MPa) is still well below the Yield Strength 
+(450 MPa), misleadingly suggesting safety if pitting is ignored. 
+ 
+06.2.7.2 Micro-Defect Stress Concentration (𝐾𝑓 Calculation)  
+To account for the pitting corrosion predicted in the environmental analysis, a theoretical Stress 
+Concentration Factor (𝐾𝑡) for a hemispherical pit was applied. 
+• Theoretical Stress Concentration (𝐾𝑡): For a small hemispherical pit in a tensile/bending 
+field, standard fracture mechanics literature assigns a value of 𝐾𝑡≈3.0. 
+
+--- Page 134 ---
+133 
+ 
+• Notch Sensitivity (𝑞): For high-strength Duplex Stainless Steels, the notch sensitivity index 𝑞 
+typically ranges from 0.8 to 0.9. A value of 𝑞= 0.8 was selected. 
+• Fatigue Notch Factor (𝐾𝑓): 
+𝐾𝑓= 1 + 𝑞(𝐾𝑡−1) 
+𝐾𝑓= 1 + 0.8(3.0 −1) = 2.6 
+ 
+06.2.7.3 Effective Stress Calculation (𝜎𝑒𝑓𝑓)  
+The actual stress experienced by the material at the root of a corrosion pit is the Nominal Corroded 
+Stress (𝜎Year10) multiplied by the Fatigue Notch Factor (𝐾𝑓). 
+𝜎𝑒𝑓𝑓= 𝜎Year10 × 𝐾𝑓 
+𝜎𝑒𝑓𝑓= 114.2 MPa × 2.6 
+𝛔𝐞𝐟𝐟≈𝟐𝟗𝟔. 𝟗 MPa 
+ 
+ 
+06.2.7.4 Material Strength Degradation (Marin Factors)  
+The fatigue limit of the material must be corrected for the seawater environment and surface condition.  
+ 
+- Base Endurance Limit (𝑆𝑒′):  
+For Duplex 2205 (𝑆𝑢𝑡≈640 MPa), the theoretical air endurance limit is ≈320 MPa.  
+ 
+- Surface Finish Factor (𝑘𝑎):  
+* Year 0 (Machined): 𝑘𝑎≈0.8.  
+* Year 10 (Corroded/Pitted): The surface finish degrades significantly. For seawater-corroded steel, 𝑘𝑎 
+drops to approximately 0.5. - Corrected Endurance Strength (𝑆𝑒,𝑐𝑜𝑟𝑟): 
+𝑆𝑒,𝑐𝑜𝑟𝑟≈𝑆𝑒′ × 𝑘𝑎× 𝑘𝑜𝑡ℎ𝑒𝑟 
+𝑆𝑒,𝑐𝑜𝑟𝑟≈320 MPa × 0.5 × 0.85(Reliability/Size) 
+𝐒𝐞,𝐜𝐨𝐫𝐫≈𝟏𝟑𝟔 MPa 
+ 
+06.2.7.5 Fatigue Life Prediction and Conclusion  
+To determine failure, we compare the Effective Stress (𝜎𝑒𝑓𝑓) against the Corrected Endurance Strength 
+(𝑆𝑒,𝑐𝑜𝑟𝑟). 
+ 
+ 
+
+==============================
+CAD & DRAWINGS (Task 04 - Premakumara)
+==============================
+
+--- Page 135 ---
+134 
+ 
+Stress Comparison: 
+o 𝜎𝑒𝑓𝑓 (Load): 296.9 MPa 
+o 𝑆𝑒,𝑐𝑜𝑟𝑟 (Resistance): 136 MPa 
+o Verdict: Since 𝜎𝑒𝑓𝑓≫𝑆𝑒,𝑐𝑜𝑟𝑟, the shaft is operating far above its fatigue limit in the 
+pitted condition. Infinite life is impossible. 
+ 
+Cycle Calculation (𝑁𝑎𝑐𝑡𝑢𝑎𝑙): Total operating cycles over 10 years: 
+𝑁𝑡𝑜𝑡𝑎𝑙= 225 rev
+min × 60 × 24 × 365 × 10 years × 0.5(Duty) 
+𝑁𝑡𝑜𝑡𝑎𝑙≈5.91 × 108 cycles 
+ 
+Life Expectancy Estimation (𝑁𝑓): Using the S-N curve approximation (𝜎= 𝐴⋅𝑁𝑏) for Duplex 
+steels in the finite life region, a stress amplitude of ≈300 MPa typically corresponds to failure in 
+the range of 105 to 106 cycles. 
+ 
+Conclusion: The analysis confirms that while the shaft is mechanically safe against uniform corrosion 
+(Safety Factor > 2 vs Yield), the onset of Pitting Corrosion acts as a critical stress multiplier. The 
+effective stress at the pit root (296.9 MPa) exceeds the seawater fatigue strength (136 MPa), leading to 
+crack initiation and catastrophic failure well before the 10-year design life (5.9 × 108 cycles) is 
+reached.  
+This validates the necessity for the proposed multi-layer corrosion protection strategy (ICCP + 
+Coatings) to prevent pitting initiation. 
+ 
+ 
+ 
+
+--- Page 136 ---
+135 
+ 
+07. CAD Drawings and 3D Models 
+The geometric definition of the marine propulsion shaft was developed using parametric 3D modelling 
+in Solid Edge and finalized through a complete set of engineering-standard 2D drawings. These 
+drawings specify the dimensions, tolerances, sectional views, and feature details required for 
+manufacturing and inspection. The CAD outputs also serve as the geometric basis for the FEA 
+simulations described in Section 06.2 and the machining plan presented in Section 08. All dimensions 
+follow ISO drawing conventions, and measurements are provided in millimeters. 
+The following subsections present the key views of the shaft assembly. The full detailed drawing sheet 
+is provided in Annex C – Engineering Drawings in the appendix. 
+ 
+07.1 3D CAD Model Representation 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 73 - 3D CAD model of the final designed shaft (view 01) 
+Figure 74 - 3D CAD model of the final designed shaft (view 02) 
+
+--- Page 137 ---
+136 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 75 - 3D CAD model of the final designed shaft (view 03) 
+Figure 76 - 3D CAD model of the final designed shaft (view 04) 
+Figure 78 - 3D CAD model of the final designed shaft (Thread 
+design of the shaft) 
+Figure 77 - 3D CAD model of the final designed shaft (Flange 
+of the shaft) 
+
+--- Page 138 ---
+137 
+ 
+07.2 2D Manufacturing Drawings 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 79Figure 79 – Displays the complete shaft length, stepped diameter transitions, and the 45 mm 
+flange thickness. Hidden lines illustrate the internal bore along the shaft axis. 
+Figure 80– Section A–A reveals the internal profile of the hollow shaft and the flange root thickness. 
+This view is essential for machining planning and for validating wall thickness during structural 
+calculations. 
+Figure 81– Shows the 60° spline profile, including tooth depth and 5 mm engagement length at the 
+propeller end. This view is used to define machining requirements and fitment tolerances. It mainly 
+shows the thread profile. It is 𝑀95 × 4 counterclockwise standard thread. 
+Figure 82– Shows the bolt circle diameter (200 mm), six mounting holes, and the outer flange 
+diameter (275 mm). This view defines the interface geometry between the propeller shaft and the 
+intermediate shaft. 
+Figure 79 - Front Elevation of Propeller Shaft 
+Figure 80 - Section A–A Showing Internal Geometry 
+Figure 82 - End Elevation of Flange Face 
+Figure 81 - Detail B: Thread Geometry 
+
+==============================
+PROCESS & QA
+==============================
+
+--- Page 139 ---
+138 
+ 
+❖ The complete 2D engineering drawing (Sheet 1) is included in Appendix C for clarity and high-
+resolution viewing. Only representative views are presented in Section 07. 
+ 
+07.3 Drawing Standards and Conventions Used 
+The engineering drawing follows: 
+• 
+ISO 128 for technical drawing representation 
+• 
+ISO 2768 for general tolerances 
+• 
+ISO 1101 for GD&T (Geometric Dimensioning and Tolerancing) 
+• 
+ISO 1302 for surface texture representation 
+• 
+ISO metric thread standards for the M95 × 4 thread region 
+• 
+Orthographic projection and sectional conventions consistent with international practice 
+All dimensions are given in millimeters, and angles are specified in degrees, as stated in the drawing 
+title block. 
+ 
+ 
+The CAD model and drawings developed in this section provide the definitive geometric and 
+dimensional specification for manufacturing, machining, and quality inspection of the marine 
+propulsion shaft. They establish the basis for FEA simulations in Section 06.2 and for the 
+manufacturing plan presented in Section 08. 
+ 
+
+--- Page 145 ---
+144 
+ 
+08.5.1 Setup and Mounting 
+The shaft is securely mounted on the CNC lathe, with the inner bore referenced using the expanding 
+mandrel to maintain axial and radial concentricity between the bore and external features. The taper 
+turning attachment or CNC interpolation cycles are programmed using the shaft’s detailed CAD model 
+and drawings for accuracy. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+08.5.2 Machining the Taper 
+• 
+The taper is machined to a 1:16 ratio (or roughly 3.58° angle) taper as per marine shaft 
+standards, reducing the shaft diameter smoothly from approximately 125 mm at the shoulder to 
+106 mm at the tip over the specified 300 mm length. 
+• 
+During taper cutting, a light finish allowance of about 0.5 mm is maintained for later finishing 
+operations.  
+• 
+This taper size conforms to marine industry standards and class society requirements for 
+propeller fittings. 
+• 
+Rough passes remove bulk material with depths of cut around 1–2 mm and feeds slowed to 
+0.3–0.5 mm/rev to minimize vibration and maintain dimensional control. 
+• 
+Final passes employ slower feeds and cutting speeds (0.1–0.2 mm/rev feeds, 60–80 m/min 
+speeds), targeting tight tolerances within ±0.02 mm and a fine surface roughness of Ra ≤ 0.8 
+μm.[94] 
+08.5.3 Machining Shoulders and Blend Radii 
+• 
+The shoulder defines the transition zone between the hollow cylindrical section and the solid 
+taper, designed for smooth stress flow and to serve as an assembly reference. 
+• 
+A fillet radius or blend radius of about 5 mm is machined at this junction to reduce stress 
+concentrations during torsional loading. 
+• 
+These radii are critical to preventing fatigue cracks and ensuring the shaft withstands 
+operational stresses over time. 
+• 
+Machining tools with polished carbide inserts and appropriate nose radii are used to achieve a 
+smooth contour linking the cylindrical and tapered sections. 
+08.5.4 Quality Assurance 
+• 
+Dimensional validation is conducted using high-precision contact or optical measurement 
+instruments to verify taper angles, diameters, and shoulder geometries. 
+Figure 87 - Taper turning from CNC lathe 
+
+--- Page 157 ---
+156 
+ 
+08.13.2 Heat Treatment Should NOT Be Done After Grinding or Polishing 
+✓ Polished surfaces lose their finish during heat treatment 
+Solution annealing scale forms at >1000 °C: 
+• 
+heavy oxide 
+• 
+discoloration 
+• 
+roughening 
+• 
+distortion 
+Grinding/polishing done before heating is wasted effort. 
+ 
+✓ Heat treatment destroys dimensional precision 
+If you grind first, then heat treat: 
+• 
+roundness is lost 
+• 
+surface waviness increases 
+• 
+Bearing fits loosen 
+• 
+taper angle shifts 
+• 
+runout increases 
+Grinding and fine polishing must be the last machining operations. 
+✓ Straightening is done after heat treatment 
+After quenching, shafts almost always require: 
+• 
+cold straightening 
+• 
+checks for TIR (total indicated runout) 
+• 
+local correction using presses 
+This would ruin a polished surface. 
+So polishing must always come after straightening. 
+ 
+ 
+ 
+
+--- Page 164 ---
+163 
+ 
+09.6 Safety Plan 
+The safety plan addresses both the safe manufacturing/installation of the shaft and the operational 
+safety throughout the shaft’s service life. It covers handling of the heavy shaft, identification of 
+potential failure modes (corrosion, fatigue) and their mitigation, in-service monitoring to preempt 
+issues, and precautions during fabrication and cathodic protection (CP) system installation. The aim is 
+to minimize the risk of accidents, component failure, or environmental hazards, thereby protecting 
+personnel, equipment, and the vessel. 
+ 
+09.6.1 Handling, Installation, and Operational Safety 
+09.6.1.1 Handling and Lifting  
+Marine propulsion shafts are large, heavy components (often hundreds of kilograms or more), so safe 
+handling is paramount. During manufacturing and assembly:  
+• A detailed lifting plan is used whenever the shaft is moved. Certified lifting equipment 
+(overhead cranes, slings, shackles) with adequate capacity (SWL well above the shaft weight) 
+are employed. The shaft should be slung at balanced lift points (often a shaft will have eye 
+bolts or a pallet for lifting) to avoid sudden shifts. Tag lines are used to guide the load and keep 
+personnel clear of pinch points.  
+• Only trained riggers operate the crane; all personnel in the vicinity must stand clear of the load 
+path. Hard hats, steel-toe shoes, and gloves are mandatory. The shaft is never to be lifted over 
+or near personnel – the area is barricaded during lifts.  
+• When setting the shaft down, ensure chocks or V-blocks are in place to prevent it from rolling. 
+The shaft is secured on wooden or rubber-covered V-blocks both in storage and during 
+machining to avoid any unexpected movement.  
+• During machining or any rotational operation (like turning on lathe), machine guards and 
+interlocks are in place. Operators ensure no loose clothing or items that could entangle. A lock-
+out/tag-out (LOTO) procedure is followed for the machining equipment during tool changes or 
+inspections – i.e., power is cut and the spindle is verified stationary before approaching the 
+shaft in the machine. 
+09.6.1.2 Installation Safety 
+Installing the shaft into the vessel (or test rig) involves careful alignment and bolting:  
+• Prior to installation, a Job Hazard Analysis is done to identify risks (such as heavy lifts in the 
+engine room, working in confined spaces, or high locations at the stern). Appropriate measures 
+like ventilation (for confined stern tube spaces), lighting, and communication methods are set. 
+• The vessel’s stern tube or bearing supports must be ready to receive the shaft. Edges are 
+checked to be free of burrs that could snag. When inserting the shaft through bearings or seals, 
+come-alongs or hydraulic jacks are often used to pull the shaft slowly – this avoids sudden 
+movements. Hands are kept clear of any gap between shaft and hull; tools like pushers are used 
+instead of fingers to maneuver the shaft.  
+• Alignment: During coupling to the engine or gearbox, alignment pins and jacks are used to line 
+up the flanges. Bolts are inserted and tightened sequentially. This is done with the engine 
+locked out (no chance of rotation) to ensure safety. If any on-site machining (like final facing 
+of coupling flange) is needed, portable machines are used with proper guarding.  
+
+--- Page 174 ---
+173 
+ 
+10. Discussion 
+The results of this project highlight the complex relationship between mechanical design, material 
+behavior, and environmental degradation in marine propulsion applications. The selection of 
+Duplex Stainless Steel 2205 emerged as a pivotal decision, providing significantly improved resistance 
+to pitting, crevice corrosion, and stress corrosion cracking compared to alternatives such as SS316L. 
+This conclusion is supported by the PREN-based corrosion screening and Granta property analysis 
+contained within the report. 
+The mechanical design calculations demonstrate that the combined torsion–bending–axial loading 
+condition produces stress levels well within the allowable limits for Duplex 2205, even under 
+conservative assumptions. Fatigue calculations based on the axial amplitude at 10⁷ cycles show that 
+safety factors remain comfortably above unity. Likewise, torsional vibration and lateral whirling 
+analyses indicate that the shaft’s natural frequencies remain safely separated from operational speeds, 
+reducing the risk of dynamic instability. This aligns with class-rule interpretations from IACS UR M68 
+and DNV-CG-0038. 
+This project also revealed a key challenge: corrosion protection must be integrated, not treated as 
+an isolated step. Cathodic protection (CP) alone cannot fully protect the shaft due to splash-zone wet–
+dry cycling, crevice regions near couplings, and MIC (microbial influenced corrosion) effects. 
+Conversely, coatings alone may degrade under mechanical wear or turbulent flow. The hybrid strategy 
+adopted in Section 05 integrating multi-layer epoxy/PU/antifouling coatings with controlled CP 
+potential addresses these limitations and reduces long-term maintenance demands. 
+From a manufacturing perspective, the sequencing of machining and heat-treatment steps proved 
+crucial. Duplex 2205 undergoes dimensional distortion during solution annealing (as detailed in the 
+report), necessitating that spline machining, threading, and critical taper finishing occur after heat 
+treatment to preserve geometric accuracy. This aligns with industry standards and avoids premature 
+tolerance deviations that compromise fit and fatigue life. 
+Class-rule alignment (DNV, ABS, LR) also shaped the design. Requirements for bearing alignment, 
+runout limits, cyclic loading margins, and vibration separation ratios were referenced to validate the 
+design. The chosen geometry satisfies these criteria, demonstrating compatibility with practical 
+marine-industry requirements beyond purely theoretical design. 
+Finally, the surface treatment workflow universal preparation, localized polishing, dry-film lubrication 
+on splines, and a final multilayer coating—provides a coherent, realistic protection pathway. The NDE 
+and QA process ensures traceability and quality assurance, reflecting the real-world expectations of 
+classification societies and shipyards. 
+Overall, the project successfully integrates mechanical integrity, corrosion science, manufacturability, 
+and regulatory compliance. The design represents a balanced, optimized solution, though further 
+refinements are possible through deeper dynamic simulation or operational monitoring. 
+ 
+ 
