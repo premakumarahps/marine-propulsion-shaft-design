@@ -8,8 +8,7 @@ import {
   Sparkles, 
   Award,
   Anchor,
-  Activity
-} from 'lucide-react';
+  Activity, ExternalLink } from 'lucide-react';
 import { GROUP_01_ROSTER } from '../core/shaftData';
 
 interface FooterProps {
@@ -169,6 +168,28 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             <br />
             MT3201 Comprehensive Design Project (CDP) • Group 01 • December 2025.
           </div>
+
+          <div className="flex items-center gap-4 text-xs">
+            <a
+              href="https://github.com/premakumarahps/marine-propulsion-shaft-design"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <span>GitHub Repository</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href="https://premakumarahps.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <span>Main Portfolio</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
 
           <button
             onClick={scrollToTop}
